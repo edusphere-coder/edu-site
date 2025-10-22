@@ -98,3 +98,7 @@ html:not([data-scroll="0"]) .navbar {
 .space-links:hover {
   letter-spacing: 1px;
 }
+svg {
+  display: block !important;
+  visibility: visible !important;
+}

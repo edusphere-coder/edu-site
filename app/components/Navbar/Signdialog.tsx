@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link";
 import { Dialog, Transition } from "@headlessui/react";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
+import { motion } from "framer-motion";
 import { Fragment, useState } from "react";
 
 const Signin = () => {
@@ -61,66 +63,80 @@ const Signin = () => {
                                                 /> */}
                                                 {/* <div className="w-full max-w-md space-y-8"> */}
                                                 <div className="mx-auto">
-                                                    <Link href="/" className="flex items-center justify-center space-x-2">
-                                                        <svg
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            viewBox="0 0 400 100"
-                                                            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto"
-                                                        >
-                                                            <defs>
-                                                                {/* Shadow for "Edu" text */}
-                                                                <filter id="textShadow" x="-20%" y="-20%" width="150%" height="150%">
-                                                                    <feDropShadow dx="1.5" dy="1.5" stdDeviation="1.5" floodColor="#333" />
-                                                                </filter>
-                                                            </defs>
+                                                   <Link href="/" className="flex items-center space-x-2 select-none">
+                        <motion.svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 400 100"
+                            className="h-12 w-auto"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <defs>
+                                <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                                <linearGradient id="sphereBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stopColor="#1d4ed8" />
+                                    <stop offset="100%" stopColor="#3b82f6" />
+                                </linearGradient>
+                            </defs>
 
-                                                            {/* "Edu Sphere" */}
-                                                            <text
-                                                                x="30"
-                                                                y="50"
-                                                                fontFamily="Times New Roman, serif"
-                                                                fontWeight="bold"
-                                                                fontSize="40"
-                                                                fill="#ffffff"
-                                                                filter="url(#textShadow)"
-                                                            >
-                                                                Edu&nbsp;
-                                                            </text>
+                            {/* --- EDU --- */}
+                            <text
+                                x="30"
+                                y="55"
+                                fontFamily="'Playfair Display', serif"
+                                fontWeight="700"
+                                fontSize="44"
+                                fill="#ffffff"
+                                stroke="#1e40af"
+                                strokeWidth="1.2"
+                                filter="url(#softGlow)"
+                            >
+                                Edu
+                            </text>
 
-                                                            <text
-                                                                x="122"
-                                                                y="50"
-                                                                fontFamily="Times New Roman, serif"
-                                                                fontWeight="bold"
-                                                                fontSize="40"
-                                                                fill="#0a4c94"
-                                                            >
-                                                                Sphere
-                                                            </text>
+                            {/* --- SPHERE (closer to Edu) --- */}
+                            <text
+                                x="112"
+                                y="55"
+                                fontFamily="'Playfair Display', serif"
+                                fontWeight="700"
+                                fontSize="44"
+                                fill="url(#sphereBlue)"
+                            >
+                                Sphere
+                            </text>
 
-                                                            {/* underline ending just under the word "Sphere" */}
-                                                            <line
-                                                                x1="122"
-                                                                y1="60"
-                                                                x2="242"
-                                                                y2="60"
-                                                                stroke="#0a4c94"
-                                                                strokeWidth="1.5"
-                                                            />
+                            {/* underline and tagline */}
+                            <line
+                                x1="112"
+                                y1="62"
+                                x2="255"
+                                y2="62"
+                                stroke="#1e3a8a"
+                                strokeWidth="1.5"
+                                opacity="0.8"
+                            />
+                            <text
+                                x="112"
+                                y="82"
+                                fontFamily="'Playfair Display', serif"
+                                fontSize="13"
+                                fill="#c7d2fe"
+                                letterSpacing="0.5"
+                            >
+                                Learn. Apply. Succeed.
+                            </text>
+                        </motion.svg>
 
-                                                            {/* tagline under line */}
-                                                            <text
-                                                                x="122"
-                                                                y="80"
-                                                                fontFamily="Times New Roman, serif"
-                                                                fontSize="12"
-                                                                fill="#b6e3b1"
-                                                                letterSpacing="0.5"
-                                                            >
-                                                                Learn. Apply. Succeed.
-                                                            </text>
-                                                        </svg>
-                                                    </Link>
+                    </Link>
+
                                                 </div>
                                                 {/* </div> */}
 

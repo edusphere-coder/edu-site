@@ -11,8 +11,6 @@ export default function Home() {
   return (
     <main>
       <Banner />
-      <Companies />
-      <Tabs />
       <Features />
       <Students />
       <Newsletter />

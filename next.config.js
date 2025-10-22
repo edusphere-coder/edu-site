@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 // const nextConfig = {}
 const nextConfig = {
-    output: 'export', // tells Next.js to generate static HTML
+    output: 'export',
+    images: {
+    unoptimized: true, // <-- disable optimization
+  }, // tells Next.js to generate static HTML
   }
   
 //   module.exports = nextConfig

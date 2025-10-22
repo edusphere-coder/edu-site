@@ -1,84 +1,71 @@
-"use client"
-import Dropdownone from './Dropdownone';
-import Dropdowntwo from './Dropdowntwo';
-
+"use client";
+import Carousel from "../Carousel/Carousel";
+import { motion } from "framer-motion";
 
 const Banner = () => {
-    return (
-        <main className='banner-image'>
-            <div className="relative px-6 lg:px-8">
-                <div className="mx-auto max-w-5xl pt-16 sm:pt-40 sm:pb-24">
-                    <div className="text-center">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-75px md:4px">
-                            Advance your engineering <br /> skills with our courses
-                        </h1>
-                        <p className="mt-6 text-lg leading-8 text-black">
-                            Build skills with our courses and mentor from world-class companies.
-                        </p>
-                        <div className="mt-10 flex items-center justify-center gap-x-6">
-                            <div className="hidden sm:block -space-x-2 overflow-hidden">
-                                <img
-                                    className="inline-block h-12 w-12 rounded-full ring-2 ring-white"
-                                    src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt=""
-                                />
-                                <img
-                                    className="inline-block h-12 w-12 rounded-full ring-2 ring-white"
-                                    src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt=""
-                                />
-                                <img
-                                    className="inline-block h-12 w-12 rounded-full ring-2 ring-white"
-                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
-                                    alt=""
-                                />
-                                <img
-                                    className="inline-block h-12 w-12 rounded-full ring-2 ring-white"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt=""
-                                />
-                                <img
-                                    className="inline-block h-12 w-12 rounded-full ring-2 ring-white"
-                                    src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt=""
-                                />
-                            </div>
-                            <div className='bannerBorder sm:pl-8'>
-                                <div className='flex justify-center sm:justify-start'>
-                                    <h3 className='text-2xl font-semibold mr-2'>4.6</h3>
-                                    <img src={'/assets/banner/Stars.svg'} alt="stars-icon" />
-                                </div>
-                                <div>
-                                    <h3 className='text-sm'>Rated by 25k on google.</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  return (
+    // <main className="relative overflow-hidden bg-gradient-to-br from-[#eef2ff] via-[#f9fbff] to-[#ffffff] min-h-screen flex items-center justify-center">
+    <main className="relative overflow-hidden bg-gradient-to-br from-[#eef2ff] via-[#f9fbff] to-[#ffffff] pt-32 pb-16 flex items-center justify-center">
 
+      {/* ---------- SVG STACKED CUBE BACKGROUND ---------- */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        aria-hidden="true"
+      >
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 1200 700"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <defs>
+            <pattern
+              id="stackedCubes"
+              width="86.6"
+              height="100"
+              patternUnits="userSpaceOnUse"
+            >
+              <g stroke="rgba(99,102,241,0.15)" strokeWidth="1" fill="none">
+                {/* Top face */}
+                <polygon points="43.3,0 86.6,25 43.3,50 0,25" />
+                {/* Left face */}
+                <polygon points="0,25 43.3,50 43.3,100 0,75" />
+                {/* Right face */}
+                <polygon points="43.3,50 86.6,25 86.6,75 43.3,100" />
+              </g>
+            </pattern>
+          </defs>
+          <rect width="1200" height="700" fill="url(#stackedCubes)" />
+        </svg>
+      </div>
 
-                    {/* DROPDOWN BUTTONS */}
+      {/* Light overlay for better contrast */}
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px] -z-[1]" />
 
+      {/* ---------- MAIN CONTENT ---------- */}
+      <div className="relative px-6 lg:px-8 flex flex-col items-center justify-center gap-8 text-center w-full max-w-6xl">
+        {/* Quote / Motto */}
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-xl sm:text-2xl md:text-3xl font-semibold text-indigo-600 max-w-3xl mx-auto"
+        >
+          {/* Your motto or text here */}
+        </motion.p>
 
-                    <div className="mx-auto max-w-4xl mt-24 pt-6 pb-8 px-6 lg:max-w-4xl lg:px-8 bg-white rounded-lg boxshadow">
-                        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-8 xl:gap-x-8">
-                            <div className="col-span-3">
-                                <Dropdownone />
-                            </div>
-                            <div className="col-span-3">
-                                <Dropdowntwo />
-                            </div>
-                            <div className="col-span-3 sm:col-span-2 mt-2">
-                                <button className="bg-purple w-full hover:bg-pruple text-white font-bold py-4 px-3 rounded">
-                                    Start
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </main>
-    )
-}
+        {/* Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="w-full flex items-center justify-center"
+        >
+          <Carousel />
+        </motion.div>
+      </div>
+    </main>
+  );
+};
 
 export default Banner;
