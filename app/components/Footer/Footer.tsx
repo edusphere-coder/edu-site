@@ -1,164 +1,138 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ComponentType } from "react";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 
-// MIDDLE LINKS DATA
-interface ProductType {
-    id: number;
-    section: string;
-    link: string[];
-}
+// ✅ Type assertion fix for React 19 compatibility
+const Instagram = FaInstagram as ComponentType<{ className?: string }>;
+const Facebook = FaFacebookF as ComponentType<{ className?: string }>;
+const LinkedIn = FaLinkedinIn as ComponentType<{ className?: string }>;
 
-const products: ProductType[] = [
-    {
-        id: 1,
-        section: "Company",
-        link: ['About us', 'Blog', 'Contact us', 'Pricing', 'Testimonials'],
-    },
-    {
-        id: 2,
-        section: "Support",
-        link: ['Help center', 'Terms of service', 'Legal', 'Privacy Policy', 'Status']
-    }
-]
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
 
-const footer = () => {
-    return (
-        <div className="bg-bgpurple -mt-64" id="first-section">
-            <div className="mx-auto max-w-2xl pt-64 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                <div className="mt-24 grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2 lg:grid-cols-12 xl:gap-x-8">
+  return (
+    <footer className="relative overflow-hidden bg-[#0a0129] text-white py-10 px-6">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
+        {/* ---------- LEFT SECTION: LOGO + SOCIAL ICONS ---------- */}
+        <div className="flex flex-col space-y-6">
+          {/* ---------- LOGO ---------- */}
+          <Link href="/" className="flex items-center space-x-2 select-none">
+            <motion.svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 400 100"
+              className="h-12 w-auto"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <defs>
+                <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                  <feMerge>
+                    <feMergeNode in="coloredBlur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+                <linearGradient id="sphereBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#1d4ed8" />
+                  <stop offset="100%" stopColor="#3b82f6" />
+                </linearGradient>
+              </defs>
 
-                    {/* COLUMN-1 */}
+              {/* --- EDU --- */}
+              <text
+                x="30"
+                y="55"
+                fontFamily="'Playfair Display', serif"
+                fontWeight="700"
+                fontSize="44"
+                fill="#ffffff"
+                stroke="#1e40af"
+                strokeWidth="1.2"
+                filter="url(#softGlow)"
+              >
+                Edu
+              </text>
 
-                    <div className='col-span-4'>
+              {/* --- SPHERE --- */}
+              <text
+                x="112"
+                y="55"
+                fontFamily="'Playfair Display', serif"
+                fontWeight="700"
+                fontSize="44"
+                fill="url(#sphereBlue)"
+              >
+                Sphere
+              </text>
 
-                        <div className="mx-auto">
-                <Link href="/" className="flex items-center space-x-2 select-none">
-                        <motion.svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 400 100"
-                            className="h-12 w-auto"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <defs>
-                                <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                                    <feMerge>
-                                        <feMergeNode in="coloredBlur" />
-                                        <feMergeNode in="SourceGraphic" />
-                                    </feMerge>
-                                </filter>
-                                <linearGradient id="sphereBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#1d4ed8" />
-                                    <stop offset="100%" stopColor="#3b82f6" />
-                                </linearGradient>
-                            </defs>
+              {/* underline and tagline */}
+              <line
+                x1="112"
+                y1="62"
+                x2="255"
+                y2="62"
+                stroke="#1e3a8a"
+                strokeWidth="1.5"
+                opacity="0.8"
+              />
+              <text
+                x="112"
+                y="82"
+                fontFamily="'Playfair Display', serif"
+                fontSize="13"
+                fill="#c7d2fe"
+                letterSpacing="0.5"
+              >
+                Learn. Apply. Succeed.
+              </text>
+            </motion.svg>
+          </Link>
 
-                            {/* --- EDU --- */}
-                            <text
-                                x="30"
-                                y="55"
-                                fontFamily="'Playfair Display', serif"
-                                fontWeight="700"
-                                fontSize="44"
-                                fill="#ffffff"
-                                stroke="#1e40af"
-                                strokeWidth="1.2"
-                                filter="url(#softGlow)"
-                            >
-                                Edu
-                            </text>
-
-                            {/* --- SPHERE (closer to Edu) --- */}
-                            <text
-                                x="112"
-                                y="55"
-                                fontFamily="'Playfair Display', serif"
-                                fontWeight="700"
-                                fontSize="44"
-                                fill="url(#sphereBlue)"
-                            >
-                                Sphere
-                            </text>
-
-                            {/* underline and tagline */}
-                            <line
-                                x1="112"
-                                y1="62"
-                                x2="255"
-                                y2="62"
-                                stroke="#1e3a8a"
-                                strokeWidth="1.5"
-                                opacity="0.8"
-                            />
-                            <text
-                                x="112"
-                                y="82"
-                                fontFamily="'Playfair Display', serif"
-                                fontSize="13"
-                                fill="#c7d2fe"
-                                letterSpacing="0.5"
-                            >
-                                Learn. Apply. Succeed.
-                            </text>
-                        </motion.svg>
-
-                    </Link>
-
-                        </div>
-                        {/* </div> */}
-
-                        <h3 className='text-white text-lg font-medium leading-9 mb-4 lg:mb-20'> Level up your skills, and get dream <br /> job with passion. </h3>
-                        <div className='flex gap-4'>
-                            <Link href="/"><img src={'/assets/footer/insta.svg'} alt="instagram" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/dribble.svg'} alt="dribble" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/twitter.svg'} alt="twitter" className='footer-icons' /></Link>
-                            <Link href="/"><img src={'/assets/footer/youtube.svg'} alt="youtube" className='footer-icons' /></Link>
-                        </div>
-                    </div>
-
-                    {/* CLOUMN-2/3 */}
-
-                    {products.map((product) => (
-                        <div key={product.id} className="group relative col-span-2">
-                            <p className="text-white text-xl font-semibold mb-9">{product.section}</p>
-                            <ul>
-                                {product.link.map((link: string, index: number) => (
-                                    <li key={index} className='mb-5'>
-                                        <Link href="/" className="text-offwhite text-sm font-normal mb-6 space-links">{link}</Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-
-                    {/* CLOUMN-4 */}
-
-                    <div className='col-span-4'>
-                        <h3 className='text-white text-xl font-semibold mb-6'>Stay up to date</h3>
-                        <div className="relative text-white focus-within:text-white flex flex-row-reverse">
-                            <input type="Email address" name="q" className="py-4 text-sm w-full text-white bg-gray-900 rounded-md pl-4 focus:outline-none bg-emailbg focus:text-white" placeholder="Your email address" autoComplete="off" />
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-2">
-                                <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
-                                    <img src={'/assets/footer/inputIcon.svg'} alt="inputicon" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            {/* All Rights Reserved */}
-
-            <div className='pb-24 px-4'>
-                <h3 className='text-center text-offwhite'>@2025 - All Rights Reserved by <span>EduSphere.in</span></h3>
-            </div>
-
+          {/* ---------- SOCIAL ICONS ---------- */}
+          <div className="flex space-x-4 mt-4">
+            <Link
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-white/10 hover:bg-indigo-600 transition-all duration-300"
+            >
+              <Instagram className="text-xl" />
+            </Link>
+            <Link
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-white/10 hover:bg-indigo-600 transition-all duration-300"
+            >
+              <Facebook className="text-xl" />
+            </Link>
+            <Link
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-white/10 hover:bg-indigo-600 transition-all duration-300"
+            >
+              <LinkedIn className="text-xl" />
+            </Link>
+          </div>
         </div>
-    )
-}
 
-export default footer;
+        {/* ---------- RIGHT SECTION: LOCATION + COPYRIGHT ---------- */}
+        <div className="mt-10 md:mt-0 text-right space-y-2">
+          <p className="text-lg font-semibold text-indigo-300">Hyderabad, India</p>
+          <p className="text-sm text-gray-300">
+            © {currentYear} EduSphere. All rights reserved.
+          </p>
+        </div>
+      </div>
+
+      {/* Subtle top gradient glow */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-blue-500 to-purple-600 opacity-60"></div>
+    </footer>
+  );
+};
+
+export default Footer;
