@@ -18,78 +18,68 @@ const Footer = () => {
         {/* ---------- LEFT SECTION: LOGO + SOCIAL ICONS ---------- */}
         <div className="flex flex-col space-y-6">
           {/* ---------- LOGO ---------- */}
-          <Link href="/" className="flex items-center space-x-2 select-none">
-            <motion.svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 400 100"
-              className="h-12 w-auto"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <defs>
-                <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                  <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-                <linearGradient id="sphereBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#1d4ed8" />
-                  <stop offset="100%" stopColor="#3b82f6" />
-                </linearGradient>
-              </defs>
+         {/* ---------- LOGO ---------- */}
+<Link href="/" className="flex items-center space-x-2 select-none">
+  <motion.svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 600 160"
+    className="h-20 w-auto"
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+  >
+    {/* Blue Circle */}
+    <circle cx="120" cy="80" r="70" fill="#0d47a1" />
 
-              {/* --- EDU --- */}
-              <text
-                x="30"
-                y="55"
-                fontFamily="'Playfair Display', serif"
-                fontWeight="700"
-                fontSize="44"
-                fill="#ffffff"
-                stroke="#1e40af"
-                strokeWidth="1.2"
-                filter="url(#softGlow)"
-              >
-                Edu
-              </text>
+    {/* --- EDU (centered in circle, white) --- */}
+    <text
+      x="120"
+      y="95"
+      textAnchor="middle"
+      fontFamily="'Playfair Display', serif"
+      fontWeight="700"
+      fontSize="60"
+      fill="#ffffff"
+    >
+      Edu
+    </text>
 
-              {/* --- SPHERE --- */}
-              <text
-                x="112"
-                y="55"
-                fontFamily="'Playfair Display', serif"
-                fontWeight="700"
-                fontSize="44"
-                fill="url(#sphereBlue)"
-              >
-                Sphere
-              </text>
+    {/* --- SPHERE (blue text, right next to circle) --- */}
+    <text
+      x="200"
+      y="95"
+      fontFamily="'Playfair Display', serif"
+      fontWeight="700"
+      fontSize="60"
+      fill="#0d47a1"
+    >
+      Sphere
+    </text>
 
-              {/* underline and tagline */}
-              <line
-                x1="112"
-                y1="62"
-                x2="255"
-                y2="62"
-                stroke="#1e3a8a"
-                strokeWidth="1.5"
-                opacity="0.8"
-              />
-              <text
-                x="112"
-                y="82"
-                fontFamily="'Playfair Display', serif"
-                fontSize="13"
-                fill="#c7d2fe"
-                letterSpacing="0.5"
-              >
-                Learn. Apply. Succeed.
-              </text>
-            </motion.svg>
-          </Link>
+    {/* --- underline (only under Sphere) --- */}
+    <line
+      x1="200"
+      y1="105"
+      x2="415"
+      y2="105"
+      stroke="#0d47a1"
+      strokeWidth="2"
+    />
+
+    {/* --- tagline (centered under Sphere) --- */}
+    <text
+      x="310"
+      y="132"
+      textAnchor="middle"
+      fontFamily="'Playfair Display', serif"
+      fontSize="20"
+      fill="#0d47a1"
+      letterSpacing="0.4"
+    >
+      Learn. Apply. Succeed.
+    </text>
+  </motion.svg>
+</Link>
 
           {/* ---------- SOCIAL ICONS ---------- */}
           <div className="flex space-x-4 mt-4">

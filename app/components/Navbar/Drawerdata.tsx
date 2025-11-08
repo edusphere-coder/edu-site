@@ -1,6 +1,6 @@
-import React from "react";
+import Contactus from "./Contactus";
 import Link from "next/link";
-import Contactus from './Contactus';
+import React from "react";
 
 interface NavigationItem {
   name: string;
@@ -44,9 +44,18 @@ const Data = () => {
             <button className="bg-white w-full hover:bg-purple hover:text-white text-black border border-purple font-medium py-2 px-4 rounded">
               Sign In
             </button>
-            <button className="bg-purple w-full hover:bg-purple hover:text-white text-white font-medium my-2 py-2 px-4 rounded">
-              Register
-            </button>
+            <button
+  className="
+  bg-gradient-to-r from-[#5C6EF8] to-[#8A5CF6]
+  w-full
+  hover:shadow-[0_0_12px_rgba(92,110,248,0.35)]
+  hover:scale-105 active:scale-95
+  transition-all duration-300
+  text-white font-medium my-2 py-2 px-4 rounded"
+>
+  Register
+</button>
+
           </div>
         </div>
       </div>

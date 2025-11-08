@@ -20,8 +20,13 @@ const Signin = () => {
         <>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div className='hidden md:block'>
-                   <button
-  className="bg-purple hover:bg-purple hover:text-white text-white text-15px font-medium ml-8 py-4 px-5 rounded"
+                 <button
+  className="
+  bg-gradient-to-r from-[#5C6EF8] to-[#8A5CF6]
+  hover:shadow-[0_0_12px_rgba(92,110,248,0.35)]
+  hover:scale-105 active:scale-95
+  transition-all duration-300
+  text-white font-medium my-2 py-2 px-4 rounded"
   onClick={openModal}
 >
   Log In
@@ -68,78 +73,66 @@ const Signin = () => {
                                                 {/* <div className="w-full max-w-md space-y-8"> */}
                                                 <div className="mx-auto">
                                                    <Link href="/" className="flex items-center space-x-2 select-none">
-                        <motion.svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 400 100"
-                            className="h-12 w-auto"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <defs>
-                                <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-                                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                                    <feMerge>
-                                        <feMergeNode in="coloredBlur" />
-                                        <feMergeNode in="SourceGraphic" />
-                                    </feMerge>
-                                </filter>
-                                <linearGradient id="sphereBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#1d4ed8" />
-                                    <stop offset="100%" stopColor="#3b82f6" />
-                                </linearGradient>
-                            </defs>
+  <motion.svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 600 160"
+    className="h-20 w-auto"
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+  >
+    {/* Blue Circle */}
+    <circle cx="120" cy="80" r="70" fill="#0d47a1" />
 
-                            {/* --- EDU --- */}
-                            <text
-                                x="30"
-                                y="55"
-                                fontFamily="'Playfair Display', serif"
-                                fontWeight="700"
-                                fontSize="44"
-                                fill="#ffffff"
-                                stroke="#1e40af"
-                                strokeWidth="1.2"
-                                filter="url(#softGlow)"
-                            >
-                                Edu
-                            </text>
+    {/* --- EDU (centered in circle, white) --- */}
+    <text
+      x="120"
+      y="95"
+      textAnchor="middle"
+      fontFamily="'Playfair Display', serif"
+      fontWeight="700"
+      fontSize="60"
+      fill="#ffffff"
+    >
+      Edu
+    </text>
 
-                            {/* --- SPHERE (closer to Edu) --- */}
-                            <text
-                                x="112"
-                                y="55"
-                                fontFamily="'Playfair Display', serif"
-                                fontWeight="700"
-                                fontSize="44"
-                                fill="url(#sphereBlue)"
-                            >
-                                Sphere
-                            </text>
+    {/* --- SPHERE (blue text, right next to circle) --- */}
+    <text
+      x="200"
+      y="95"
+      fontFamily="'Playfair Display', serif"
+      fontWeight="700"
+      fontSize="60"
+      fill="#0d47a1"
+    >
+      Sphere
+    </text>
 
-                            {/* underline and tagline */}
-                            <line
-                                x1="112"
-                                y1="62"
-                                x2="255"
-                                y2="62"
-                                stroke="#1e3a8a"
-                                strokeWidth="1.5"
-                                opacity="0.8"
-                            />
-                            <text
-                                x="112"
-                                y="82"
-                                fontFamily="'Playfair Display', serif"
-                                fontSize="13"
-                                fill="#c7d2fe"
-                                letterSpacing="0.5"
-                            >
-                                Learn. Apply. Succeed.
-                            </text>
-                        </motion.svg>
+    {/* --- underline (only under Sphere) --- */}
+    <line
+      x1="200"
+      y1="105"
+      x2="415"
+      y2="105"
+      stroke="#0d47a1"
+      strokeWidth="2"
+    />
 
-                    </Link>
+    {/* --- tagline (centered under Sphere) --- */}
+    <text
+      x="310"
+      y="132"
+      textAnchor="middle"
+      fontFamily="'Playfair Display', serif"
+      fontSize="20"
+      fill="#0d47a1"
+      letterSpacing="0.4"
+    >
+      Learn. Apply. Succeed.
+    </text>
+  </motion.svg>
+</Link>
 
                                                 </div>
                                                 {/* </div> */}

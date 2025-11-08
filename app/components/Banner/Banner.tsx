@@ -158,14 +158,14 @@ const Banner = () => {
           <button className="px-8 py-4 bg-gradient-to-r from-[#7b2ff7] to-[#00eaff] rounded-full font-semibold text-white shadow-[0_0_15px_rgba(123,47,247,0.5)] hover:scale-105 transition-transform">
             EXPLORE COURSES & GET PLACEMENT READY
           </button>
-          <button className="px-8 py-4 border border-gray-500 text-white rounded-full hover:bg-white/10 transition">
+          {/* <button className="px-8 py-4 border border-gray-500 text-white rounded-full hover:bg-white/10 transition">
             Download Syllabus
-          </button>
+          </button> */}
         </motion.div>
 
-        <p className="text-sm text-gray-400 mt-4">
+        {/* <p className="text-sm text-gray-400 mt-4">
           Download Syllabus | Read Success Stories
-        </p>
+        </p> */}
       </div>
     </section>
   );

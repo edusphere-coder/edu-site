@@ -42,7 +42,7 @@ export default function Navbar() {
         <div className="flex h-20 items-center justify-between">
 
           {/* ---------- LOGO ---------- */}
-          <Link href="/" className="flex items-center space-x-2 select-none">
+          {/* <Link href="/" className="flex items-center space-x-2 select-none">
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 400 100"
@@ -66,7 +66,7 @@ export default function Navbar() {
               </defs>
 
               {/* --- EDU --- */}
-              <text
+              {/* <text
                 x="30"
                 y="55"
                 fontFamily="'Playfair Display', serif"
@@ -78,10 +78,10 @@ export default function Navbar() {
                 filter="url(#softGlow)"
               >
                 Edu
-              </text>
+              </text> */}
 
               {/* --- SPHERE --- */}
-              <text
+              {/* <text
                 x="112"
                 y="55"
                 fontFamily="'Playfair Display', serif"
@@ -90,10 +90,10 @@ export default function Navbar() {
                 fill="url(#sphereBlue)"
               >
                 Sphere
-              </text>
+              </text> */}
 
               {/* underline and tagline */}
-              <line
+              {/* <line
                 x1="112"
                 y1="62"
                 x2="255"
@@ -113,7 +113,71 @@ export default function Navbar() {
                 Learn. Apply. Succeed.
               </text>
             </motion.svg>
-          </Link>
+          </Link> */} 
+
+          {/* ---------- LOGO ---------- */}
+<Link href="/" className="flex items-center space-x-2 select-none">
+  <motion.svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 600 160"
+    className="h-20 w-auto"
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+  >
+    {/* Blue Circle */}
+    <circle cx="120" cy="80" r="70" fill="#0d47a1" />
+
+    {/* --- EDU (centered in circle, white) --- */}
+    <text
+      x="120"
+      y="95"
+      textAnchor="middle"
+      fontFamily="'Playfair Display', serif"
+      fontWeight="700"
+      fontSize="60"
+      fill="#ffffff"
+    >
+      Edu
+    </text>
+
+    {/* --- SPHERE (blue text, right next to circle) --- */}
+    <text
+      x="200"
+      y="95"
+      fontFamily="'Playfair Display', serif"
+      fontWeight="700"
+      fontSize="60"
+      fill="#0d47a1"
+    >
+      Sphere
+    </text>
+
+    {/* --- underline (only under Sphere) --- */}
+    <line
+      x1="200"
+      y1="105"
+      x2="415"
+      y2="105"
+      stroke="#0d47a1"
+      strokeWidth="2"
+    />
+
+    {/* --- tagline (centered under Sphere) --- */}
+    <text
+      x="310"
+      y="132"
+      textAnchor="middle"
+      fontFamily="'Playfair Display', serif"
+      fontSize="20"
+      fill="#0d47a1"
+      letterSpacing="0.4"
+    >
+      Learn. Apply. Succeed.
+    </text>
+  </motion.svg>
+</Link>
+
 
           {/* ---------- NAV LINKS ---------- */}
           <div className="hidden md:flex space-x-6">
