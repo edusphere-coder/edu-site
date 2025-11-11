@@ -10,6 +10,9 @@ import { coursesData } from "../../components/Data/CourseData";
 // import Testimonials from "../../components/Courses/Testimonials";
 
 // import CourseInstructor from "../../components/Courses/CourseInstructor";
+export async function generateStaticParams() {
+  return Object.keys(coursesData).map((slug) => ({ slug }));
+}
 
 export default function CoursePage() {
   const { slug } = useParams();
