@@ -13,12 +13,14 @@ interface Course {
   title: string;
   image: string;
   description: string;
+  slug: string;
 }
 
 const courses: Course[] = [
   {
     id: 1,
     title: "Artificial Intelligence",
+    slug: "artificial-intelligence",
     image: "/assets/courses/ai.png",
     description:
       "Build intelligent systems using ML and NLP. Train models using TensorFlow and Python for real-world applications.",
@@ -26,6 +28,7 @@ const courses: Course[] = [
   {
     id: 2,
     title: "Data Analysis",
+     slug: "data-analysis",
     image: "/assets/courses/d_Analysis.jpg",
     description:
       "Explore analytics using Python, Power BI, and Excel. Visualize data and make insight-driven decisions.",
@@ -33,6 +36,7 @@ const courses: Course[] = [
   {
     id: 3,
     title: "SAP",
+    slug: "cyber-security",
     image: "/assets/courses/sap.jpg",
     description:
       "Become an SAP professional. Understand enterprise modules like FICO, MM, and HANA with guided practical training.",
@@ -40,6 +44,7 @@ const courses: Course[] = [
   {
     id: 4,
     title: "Cyber Security",
+    slug: "cyber-security",
     image: "/assets/courses/cyber.jpg",
     description:
       "Defend systems from modern threats. Learn ethical hacking, network defense, and cybersecurity protocols.",
@@ -47,6 +52,7 @@ const courses: Course[] = [
   {
     id: 5,
     title: "Full Stack Python",
+     slug: "full-stack-python",
     image: "/assets/courses/py.jpeg",
     description:
       "Develop full-featured Python apps using Django and React. Learn deployment and back-end integration hands-on.",
@@ -54,6 +60,7 @@ const courses: Course[] = [
   {
      id: 6,
     title: "Full Stack Java",
+      slug: "full-stack-java",
     image: "/assets/courses/java.jpg",
     description:
       "Master Java development from front-end to back-end. Learn Spring Boot, APIs, and scalable systems with real-world projects.",
@@ -123,7 +130,7 @@ const CourseCard = ({ course }: { course: Course }) => {
 
 
           <Link
-            href="#"
+            href={`/courses/${course.slug}`}
             className="text-xs sm:text-sm font-semibold text-[#1f2937] hover:text-[#3b82f6] transition-colors"
           >
             View Details →

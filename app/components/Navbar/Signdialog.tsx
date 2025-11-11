@@ -20,17 +20,17 @@ const Signin = () => {
         <>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div className='hidden md:block'>
-                 <button
-  className="
+                    <button
+                        className="
   bg-gradient-to-r from-[#5C6EF8] to-[#8A5CF6]
   hover:shadow-[0_0_12px_rgba(92,110,248,0.35)]
   hover:scale-105 active:scale-95
   transition-all duration-300
   text-white font-medium my-2 py-2 px-4 rounded"
-  onClick={openModal}
->
-  Log In
-</button>
+                        onClick={openModal}
+                    >
+                        Log In
+                    </button>
 
                 </div>
             </div>
@@ -72,67 +72,67 @@ const Signin = () => {
                                                 /> */}
                                                 {/* <div className="w-full max-w-md space-y-8"> */}
                                                 <div className="mx-auto">
-                                                   <Link href="/" className="flex items-center space-x-2 select-none">
-  <motion.svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 600 160"
-    className="h-20 w-auto"
-    initial={{ opacity: 0, y: -10 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-  >
-    {/* Blue Circle */}
-    <circle cx="120" cy="80" r="70" fill="#0d47a1" />
+                                                    <Link href="/" className="flex items-center space-x-2 select-none">
+                                                        <motion.svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 600 160"
+                                                            className="h-20 w-auto"
+                                                            initial={{ opacity: 0, y: -10 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            transition={{ duration: 0.8 }}
+                                                        >
+                                                            {/* Blue Circle */}
+                                                            <circle cx="120" cy="80" r="70" fill="#0d47a1" />
 
-    {/* --- EDU (centered in circle, white) --- */}
-    <text
-      x="120"
-      y="95"
-      textAnchor="middle"
-      fontFamily="'Playfair Display', serif"
-      fontWeight="700"
-      fontSize="60"
-      fill="#ffffff"
-    >
-      Edu
-    </text>
+                                                            {/* --- EDU (centered in circle, white) --- */}
+                                                            <text
+                                                                x="120"
+                                                                y="95"
+                                                                textAnchor="middle"
+                                                                fontFamily="'Playfair Display', serif"
+                                                                fontWeight="700"
+                                                                fontSize="60"
+                                                                fill="#ffffff"
+                                                            >
+                                                                Edu
+                                                            </text>
 
-    {/* --- SPHERE (blue text, right next to circle) --- */}
-    <text
-      x="200"
-      y="95"
-      fontFamily="'Playfair Display', serif"
-      fontWeight="700"
-      fontSize="60"
-      fill="#0d47a1"
-    >
-      Sphere
-    </text>
+                                                            {/* --- SPHERE (blue text, right next to circle) --- */}
+                                                            <text
+                                                                x="200"
+                                                                y="95"
+                                                                fontFamily="'Playfair Display', serif"
+                                                                fontWeight="700"
+                                                                fontSize="60"
+                                                                fill="#0d47a1"
+                                                            >
+                                                                Sphere
+                                                            </text>
 
-    {/* --- underline (only under Sphere) --- */}
-    <line
-      x1="200"
-      y1="105"
-      x2="415"
-      y2="105"
-      stroke="#0d47a1"
-      strokeWidth="2"
-    />
+                                                            {/* --- underline (only under Sphere) --- */}
+                                                            <line
+                                                                x1="200"
+                                                                y1="105"
+                                                                x2="415"
+                                                                y2="105"
+                                                                stroke="#0d47a1"
+                                                                strokeWidth="2"
+                                                            />
 
-    {/* --- tagline (centered under Sphere) --- */}
-    <text
-      x="310"
-      y="132"
-      textAnchor="middle"
-      fontFamily="'Playfair Display', serif"
-      fontSize="20"
-      fill="#0d47a1"
-      letterSpacing="0.4"
-    >
-      Learn. Apply. Succeed.
-    </text>
-  </motion.svg>
-</Link>
+                                                            {/* --- tagline (centered under Sphere) --- */}
+                                                            <text
+                                                                x="310"
+                                                                y="132"
+                                                                textAnchor="middle"
+                                                                fontFamily="'Playfair Display', serif"
+                                                                fontSize="20"
+                                                                fill="#0d47a1"
+                                                                letterSpacing="0.4"
+                                                            >
+                                                                Learn. Apply. Succeed.
+                                                            </text>
+                                                        </motion.svg>
+                                                    </Link>
 
                                                 </div>
                                                 {/* </div> */}
