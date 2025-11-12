@@ -19,7 +19,7 @@ interface Course {
 const courses: Course[] = [
   {
     id: 1,
-    title: "Artificial Intelligence",
+    title: "AI/ML",
     slug: "artificial-intelligence",
     image: "/assets/courses/ai.png",
     description:
@@ -36,7 +36,7 @@ const courses: Course[] = [
   {
     id: 3,
     title: "SAP",
-    slug: "cyber-security",
+    slug: "sap",
     image: "/assets/courses/sap.jpg",
     description:
       "Become an SAP professional. Understand enterprise modules like FICO, MM, and HANA with guided practical training.",
