@@ -8,7 +8,6 @@ export default function Home() {
       <Banner />
       <Courses/>
       <Features />
-      
     </main>
   )
 }

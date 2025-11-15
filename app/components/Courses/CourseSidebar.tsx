@@ -41,8 +41,7 @@ const CourseSidebar = ({
 
         <div className="mb-4">
           <div className="font-semibold text-2xl text-gray-900">
-            {/* {formatCurrency(price, currency)} 
-            <span>/-</span> */}
+            
           </div>
           {seatsLeft !== undefined && (
             <div className="mt-1 text-xs text-gray-500">
