@@ -1,66 +1,121 @@
-import Contactus from "./Contactus";
+"use client";
 import Link from "next/link";
-import React from "react";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
-interface NavigationItem {
-  name: string;
-  href: string;
-  current: boolean;
-}
+const mobileNavItems = [
+  { label: "Home", href: "/" },
+  { label: "Courses", href: "#courses-section" },
+  { label: "About Us", href: "#About-Us-section" },
+  { label: "Presentations", href: "/" },
+  { label: "Recordings", href: "/" },
+  { label: "Contact Us", href: "/contact" },
+];
 
-const navigation: NavigationItem[] = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Courses', href: '#courses-section', current: false },
-  { name: 'Mentors', href: '#mentors-section', current: false },
-  { name: 'Testimonial', href: '#testimonial-section', current: false },
-  { name: 'Join', href: '#join-section', current: false },
-]
+export default function Drawerdata() {
+  const pathname = usePathname();
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
-const Data = () => {
   return (
-    <div className="rounded-md max-w-sm w-full mx-auto">
-      <div className="flex-1 space-y-4 py-1">
-        <div className="sm:block">
-          <div className="space-y-1 px-5 pt-2 pb-3">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={classNames(
-                  item.current ? 'bg-gray-900 text-purple' : 'text-black hover:bg-gray-700 hover:text-purple',
-                  'block  py-2 rounded-md text-base font-medium'
-                )}
-                aria-current={item.current ? 'page' : undefined}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Contactus />
-            <div className="mt-4"></div>
-            <button className="bg-white w-full hover:bg-purple hover:text-white text-black border border-purple font-medium py-2 px-4 rounded">
-              Sign In
-            </button>
-            <button
-  className="
-  bg-gradient-to-r from-[#5C6EF8] to-[#8A5CF6]
-  w-full
-  hover:shadow-[0_0_12px_rgba(92,110,248,0.35)]
-  hover:scale-105 active:scale-95
-  transition-all duration-300
-  text-white font-medium my-2 py-2 px-4 rounded"
->
-  Register
-</button>
+    <div className="flex flex-col space-y-5">
+      {/* Logo
+      <motion.div
+        initial={{ opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <h1 className="font-bold text-xl text-blue-700">EduSphere</h1>
+        <p className="text-sm text-gray-500 -mt-1">Learn. Apply. Succeed.</p>
+      </motion.div> */}
 
-          </div>
-        </div>
+      {/* ---------- LOGO ---------- */}
+          <Link href="/" className="flex items-center select-none">
+            <motion.svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 600 160"
+              className="h-16 w-auto"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <circle cx="120" cy="80" r="65" fill="#0d47a1" />
+              <text
+                x="120"
+                y="95"
+                textAnchor="middle"
+                fontFamily="'Playfair Display', serif"
+                fontWeight="700"
+                fontSize="55"
+                fill="#fff"
+              >
+                Edu
+              </text>
+              <text
+                x="200"
+                y="95"
+                fontFamily="'Playfair Display', serif"
+                fontWeight="700"
+                fontSize="55"
+                fill="#0d47a1"
+              >
+                Sphere
+              </text>
+              <line
+                x1="200"
+                y1="105"
+                x2="415"
+                y2="105"
+                stroke="#0d47a1"
+                strokeWidth="2"
+              />
+              <text
+                x="310"
+                y="132"
+                textAnchor="middle"
+                fontFamily="'Playfair Display', serif"
+                fontSize="18"
+                fill="#0d47a1"
+                letterSpacing="0.3"
+              >
+                Learn. Apply. Succeed.
+              </text>
+            </motion.svg>
+          </Link>
+
+      {/* Nav Items */}
+      <div className="space-y-1">
+        {mobileNavItems.map((item) => {
+          const isActive =
+            item.href === pathname || pathname.startsWith(item.href);
+
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`block text-[17px] font-medium px-3 py-2 rounded-lg transition-all ${
+                isActive
+                  ? "bg-blue-100 text-blue-700"
+                  : "text-gray-800 hover:bg-gray-100"
+              }`}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </div>
+
+      {/* Auth Buttons */}
+      <div className="border-t border-gray-200 pt-4 space-y-3">
+        <Link href="/signin">
+          <button className="w-full py-2.5 rounded-lg border border-blue-600 text-blue-600 font-medium active:scale-95 transition">
+            Sign In
+          </button>
+        </Link>
+
+        <Link href="/register">
+          <button className="w-full py-2.5 rounded-lg bg-blue-600 text-white font-medium active:scale-95 transition">
+            Register
+          </button>
+        </Link>
       </div>
     </div>
   );
 }
-
-export default Data;

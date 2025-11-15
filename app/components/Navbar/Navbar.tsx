@@ -132,15 +132,16 @@ const isLightPage = lightRoutes.some(route => pathname.startsWith(route));
             <Registerdialog />
           </div>
 
-          {/* ---------- MOBILE MENU ---------- */}
-          <div className="block md:hidden">
-            <Bars3Icon
-              className={`h-6 w-6 cursor-pointer ${
-                scrolled || isLightPage ? "text-gray-800" : "text-white"
-              }`}
-              onClick={() => setIsOpen(true)}
-            />
-          </div>
+         {/* ---------- MOBILE NAVBAR ---------- */}
+<div className="block md:hidden">
+  <Bars3Icon
+    className={`h-7 w-7 cursor-pointer ${
+      scrolled || isLightPage ? "text-gray-900" : "text-white"
+    }`}
+    onClick={() => setIsOpen(true)}
+  />
+</div>
+
 
           <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
             <Drawerdata />

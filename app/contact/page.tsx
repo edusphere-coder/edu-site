@@ -110,7 +110,7 @@ export default function ContactSection() {
           <div className="space-y-6">
             <div>
               <p className="text-sm opacity-80">Address</p>
-              <p className="text-lg mt-1">Tadepalligudem, Ganesh Colony</p>
+              <p className="text-lg mt-1">kk plaza, 1st floor, K.N Road, Tadepalligudem,W.G District, Andrapradesh</p>
             </div>
 
             <div>
@@ -122,9 +122,16 @@ export default function ContactSection() {
               </div>
 
               <div className="mt-2 flex items-center gap-3">
-                <span className="">📧</span>
-                <p>recruitment@eduspherecourses.com</p>
-              </div>
+  <span>📧</span>
+
+  <a
+    href="mailto:recruitment@eduspherecourses.com"
+    className="hover:underline cursor-pointer"
+  >
+    recruitment@eduspherecourses.com
+  </a>
+</div>
+
 
             </div>
           </div>
