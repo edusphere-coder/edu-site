@@ -13,45 +13,44 @@ export default function Drawer({ isOpen, setIsOpen, children }: DrawerProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex"
-        >
-          {/* Drawer Panel */}
+        <>
+          {/* BACKDROP */}
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 140, damping: 18 }}
+            onClick={() => setIsOpen(false)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[90] bg-black/40 backdrop-blur-sm"
+          />
+
+          {/* FLOATING PANEL (compact, right aligned) */}
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.97 }}
+            transition={{ duration: 0.28, ease: "easeOut" }}
             className="
-              bg-white 
-              w-[82%] 
-              max-w-[350px] 
-              h-full 
-              shadow-xl 
-              rounded-l-3xl 
-              px-6 
-              py-5 
-              overflow-y-auto
-              ml-auto
-            "
+  fixed top-20 right-4 z-[100]
+  w-[320px]
+  bg-white
+  backdrop-blur-xl
+  rounded-3xl shadow-[0_8px_34px_rgba(0,0,0,0.18)]
+  border border-white/40
+  p-6
+"
+
           >
-            {/* Close button */}
+            {/* CLOSE BUTTON */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-700 p-1 rounded-full hover:bg-gray-100"
+              className="absolute top-4 right-4 text-gray-700 p-1 hover:bg-black/10 rounded-full"
             >
-              <XMarkIcon className="h-6 w-6" />
+              <XMarkIcon className="h-5 w-5" />
             </button>
 
-            <div className="mt-3">{children}</div>
+            {children}
           </motion.div>
-
-          {/* Close on backdrop click */}
-          <div className="flex-1" onClick={() => setIsOpen(false)}></div>
-        </motion.div>
+        </>
       )}
     </AnimatePresence>
   );

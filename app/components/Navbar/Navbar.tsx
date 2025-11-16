@@ -31,17 +31,16 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-const lightRoutes = ["/courses", "/signin", "/register", "/about","/contact","/signin", "/register"];
-const isLightPage = lightRoutes.some(route => pathname.startsWith(route));
+  const lightRoutes = ["/courses", "/signin", "/register", "/about", "/contact", "/signin", "/register"];
+  const isLightPage = lightRoutes.some(route => pathname.startsWith(route));
 
   return (
     <Disclosure
       as="nav"
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled || isLightPage
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled || isLightPage
           ? "bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-[0_2px_12px_rgba(0,0,0,0.05)]"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-8">
         <div className="flex h-20 items-center justify-between">
@@ -109,17 +108,15 @@ const isLightPage = lightRoutes.some(route => pathname.startsWith(route));
               >
                 <Link
                   href={item.href}
-                  className={`relative text-[15px] font-medium transition-all duration-300 group ${
-                    scrolled || isLightPage
+                  className={`relative text-[15px] font-medium transition-all duration-300 group ${scrolled || isLightPage
                       ? "text-gray-800 hover:text-black"
                       : "text-white hover:text-gray-200"
-                  }`}
+                    }`}
                 >
                   {item.name}
                   <span
-                    className={`absolute left-0 -bottom-1 h-[2px] w-0 rounded-full transition-all duration-300 group-hover:w-full ${
-                      scrolled || isLightPage ? "bg-[#0d47a1]" : "bg-white"
-                    }`}
+                    className={`absolute left-0 -bottom-1 h-[2px] w-0 rounded-full transition-all duration-300 group-hover:w-full ${scrolled || isLightPage ? "bg-[#0d47a1]" : "bg-white"
+                      }`}
                   ></span>
                 </Link>
               </motion.div>
@@ -132,20 +129,20 @@ const isLightPage = lightRoutes.some(route => pathname.startsWith(route));
             <Registerdialog />
           </div>
 
-         {/* ---------- MOBILE NAVBAR ---------- */}
-<div className="block md:hidden">
-  <Bars3Icon
-    className={`h-7 w-7 cursor-pointer ${
-      scrolled || isLightPage ? "text-gray-900" : "text-white"
-    }`}
-    onClick={() => setIsOpen(true)}
-  />
-</div>
+          {/* ---------- MOBILE NAVBAR ---------- */}
+          <div className="block md:hidden">
+            <Bars3Icon
+              className={`h-7 w-7 cursor-pointer ${scrolled || isLightPage ? "text-gray-900" : "text-white"
+                }`}
+              onClick={() => setIsOpen(true)}
+            />
+          </div>
 
 
           <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-            <Drawerdata />
+            <Drawerdata closeMenu={() => setIsOpen(false)} />
           </Drawer>
+
         </div>
       </div>
     </Disclosure>
