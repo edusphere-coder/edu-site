@@ -98,7 +98,7 @@ export default function Footer() {
 
         {/* ---------- RIGHT SECTION ---------- */}
         <div className="mt-10 md:mt-0 text-right">
-          <p className="text-lg font-semibold text-indigo-300">Andrapradesh, Banglore</p>
+          <p className="text-lg font-semibold text-indigo-300">Andrapradesh, Bangalore</p>
           <p className="text-sm text-gray-300">
             © {currentYear} EduSphere. All rights reserved.
           </p>

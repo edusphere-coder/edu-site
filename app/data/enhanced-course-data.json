@@ -1,0 +1,975 @@
+{
+    "artificial-intelligence": {
+        "slug": "artificial-intelligence",
+        "title": "Artificial Intelligence & Machine Learning",
+        "subtitle": "Master the art of building intelligent systems — from Python and Data Analysis to Deep Learning, NLP, and Generative AI. Get hands-on experience with real-world AI applications powered by TensorFlow, PyTorch, and Hugging Face.",
+        "description": "This comprehensive Artificial Intelligence & Machine Learning program is designed to transform you into a skilled AI practitioner. You'll start by building a strong foundation in Python, data analysis, and mathematics for ML — the building blocks of intelligent systems. Then, you'll move into machine learning algorithms, model training, and evaluation. The course also dives deep into deep learning with TensorFlow and PyTorch, enabling you to build and optimize neural networks for vision and language tasks. You'll also explore NLP using Hugging Face Transformers, and finish with cutting-edge topics like Generative AI, LLMs, RAG, and Agentic AI. Every module includes hands-on labs, capstone projects, and real-world AI problem-solving experience.",
+        "level": "intermediate",
+        "duration": 720,
+        "durationWeeks": 12,
+        "rating": 4.9,
+        "studentsEnrolled": 12873,
+        "price": 19999,
+        "currency": "INR",
+        "seatsLeft": 73,
+        "instructor": {
+            "name": "Dr. Priya Sharma",
+            "title": "AI Research Scientist",
+            "bio": "PhD in Machine Learning from IIT Delhi with 10+ years of experience in AI research and industry applications.",
+            "image": "/assets/instructors/ai-instructor.jpg"
+        },
+        "highlights": [
+            "Live Projects & Capstones",
+            "Certificate of Completion",
+            "24/7 Mentor Support",
+            "Downloadable Resources + Notebooks",
+            "Flexible deadlines",
+            "Peer Code Reviews",
+            "Career Guidance"
+        ],
+        "prerequisites": [
+            "Basic programming knowledge (any language)",
+            "High school mathematics",
+            "Passion for learning AI"
+        ],
+        "learningOutcomes": [
+            "Build and deploy machine learning models using Python",
+            "Develop deep learning applications with TensorFlow and PyTorch",
+            "Create NLP applications using Hugging Face Transformers",
+            "Implement Generative AI and LLM-based solutions",
+            "Build RAG pipelines and Agentic AI systems",
+            "Apply AI to solve real-world business problems"
+        ],
+        "modules": [
+            {
+                "id": 1,
+                "title": "Python for AI & Data Science",
+                "duration": "2 weeks",
+                "summary": "Python basics, NumPy, Pandas, EDA and Jupyter workflows",
+                "topics": [
+                    "Python fundamentals and syntax",
+                    "Data structures, loops, and functions",
+                    "Working with NumPy and Pandas",
+                    "Exploratory data analysis with Jupyter Notebook"
+                ],
+                "learningOutcomes": [
+                    "Write efficient Python code for data manipulation",
+                    "Perform data analysis using NumPy and Pandas",
+                    "Create insightful visualizations"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Data Analysis & Visualization",
+                "duration": "1.5 weeks",
+                "summary": "Data cleaning, visualization and feature engineering",
+                "topics": [
+                    "Data cleaning and preprocessing",
+                    "Visualization with Matplotlib and Seaborn",
+                    "Feature engineering and scaling",
+                    "Understanding real-world datasets"
+                ],
+                "learningOutcomes": [
+                    "Clean and prepare data for ML models",
+                    "Create professional data visualizations",
+                    "Engineer features for better model performance"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Mathematics for Machine Learning",
+                "duration": "1.5 weeks",
+                "summary": "Linear algebra, calculus basics for gradients and optimization",
+                "topics": [
+                    "Linear algebra and matrix operations",
+                    "Calculus and gradient descent intuition",
+                    "Probability and statistics for ML",
+                    "Optimization fundamentals"
+                ],
+                "learningOutcomes": [
+                    "Understand the mathematical foundations of ML",
+                    "Apply linear algebra to ML problems",
+                    "Grasp optimization techniques"
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Machine Learning Fundamentals",
+                "duration": "2 weeks",
+                "summary": "Classic ML algorithms and evaluation",
+                "topics": [
+                    "Supervised vs Unsupervised Learning",
+                    "Regression, Classification, and Clustering",
+                    "Model evaluation and cross-validation",
+                    "Decision Trees, Random Forests, and Ensemble methods"
+                ],
+                "learningOutcomes": [
+                    "Build and evaluate ML models",
+                    "Choose appropriate algorithms for different problems",
+                    "Optimize model performance"
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Deep Learning with PyTorch & TensorFlow",
+                "duration": "2.5 weeks",
+                "summary": "Neural networks, CNNs, training & optimization",
+                "topics": [
+                    "Introduction to Neural Networks",
+                    "Building deep models using PyTorch",
+                    "TensorFlow workflows and model optimization",
+                    "Convolutional Neural Networks (CNNs) and Image Classification"
+                ],
+                "learningOutcomes": [
+                    "Design and train neural networks",
+                    "Build image classification models",
+                    "Optimize deep learning models"
+                ]
+            },
+            {
+                "id": 6,
+                "title": "NLP with Hugging Face",
+                "duration": "1.5 weeks",
+                "summary": "Transformers, embeddings, fine-tuning",
+                "topics": [
+                    "Text preprocessing and embeddings",
+                    "Transformers and Attention Mechanism",
+                    "Fine-tuning BERT and GPT models",
+                    "Sentiment Analysis and Chatbot Projects"
+                ],
+                "learningOutcomes": [
+                    "Build NLP applications using transformers",
+                    "Fine-tune pre-trained language models",
+                    "Create chatbots and text analysis tools"
+                ]
+            },
+            {
+                "id": 7,
+                "title": "Generative AI, LLMs, RAG & Agentic AI",
+                "duration": "1 week",
+                "summary": "Large models, RAG pipelines and autonomous agents",
+                "topics": [
+                    "Understanding Generative Models and Diffusion Models",
+                    "Building and fine-tuning Large Language Models",
+                    "Retrieval-Augmented Generation (RAG) with LangChain",
+                    "Introduction to Agentic AI and building autonomous agents"
+                ],
+                "learningOutcomes": [
+                    "Build generative AI applications",
+                    "Implement RAG pipelines",
+                    "Create autonomous AI agents"
+                ]
+            },
+            {
+                "id": 8,
+                "title": "Capstone Projects & AI Applications",
+                "duration": "1.5 weeks",
+                "summary": "4 real-world capstones to showcase in your portfolio",
+                "topics": [
+                    "Project 1: Predictive Analytics for Business Decisions",
+                    "Project 2: Image Classification using CNNs",
+                    "Project 3: Building a Chatbot with Hugging Face",
+                    "Project 4: LLM-based RAG pipeline with Agentic AI"
+                ],
+                "learningOutcomes": [
+                    "Build end-to-end AI projects",
+                    "Create a professional portfolio",
+                    "Apply AI to real-world problems"
+                ]
+            }
+        ],
+        "faq": [
+            {
+                "question": "Is this course suitable for beginners?",
+                "answer": "Absolutely! The course starts with Python basics and gradually progresses into advanced AI and ML topics. It's structured for both beginners and intermediate learners."
+            },
+            {
+                "question": "Do I need prior coding experience?",
+                "answer": "Some basic understanding of programming is helpful but not mandatory. Python fundamentals are covered in the first module."
+            },
+            {
+                "question": "Are there practical projects included?",
+                "answer": "Yes, every module includes mini-projects, and you'll complete 4 end-to-end capstone projects to apply what you've learned."
+            },
+            {
+                "question": "Will I get access to model deployment lessons?",
+                "answer": "Yes, the course includes real-world deployment using Flask and FastAPI for ML and AI models."
+            },
+            {
+                "question": "Is this course aligned with current industry trends?",
+                "answer": "Definitely! You'll work with modern AI frameworks like TensorFlow, PyTorch, and Hugging Face, and explore Generative AI, LLMs, RAG, and Agentic AI applications."
+            }
+        ]
+    },
+    "data-analysis": {
+        "slug": "data-analysis",
+        "title": "Data Analysis & Business Intelligence",
+        "subtitle": "Unlock the power of data. Learn how to analyze, visualize, and communicate insights using Python, Power BI, and Excel.",
+        "description": "This course equips you with the analytical mindset and technical tools to transform raw data into actionable insights. You'll master Excel, Power BI, and Python for data analysis, learn how to clean and visualize data effectively, and create professional dashboards for decision-making. The program is ideal for aspiring data analysts, business intelligence professionals, and managers who want to make data-driven decisions.",
+        "level": "beginner",
+        "duration": 600,
+        "durationWeeks": 10,
+        "rating": 4.8,
+        "studentsEnrolled": 9742,
+        "price": 14999,
+        "currency": "INR",
+        "seatsLeft": 61,
+        "instructor": {
+            "name": "Rajesh Kumar",
+            "title": "Senior Data Analyst",
+            "bio": "15+ years of experience in business intelligence and data analytics across Fortune 500 companies.",
+            "image": "/assets/instructors/data-instructor.jpg"
+        },
+        "highlights": [
+            "Hands-on with Power BI and Python",
+            "Excel automation & dashboards",
+            "Certificate upon completion",
+            "Real-world datasets & case studies",
+            "Career-ready BI Projects",
+            "Mentor Support 24/7",
+            "Flexible Schedule"
+        ],
+        "prerequisites": [
+            "Basic computer skills",
+            "Familiarity with Excel (helpful but not required)",
+            "Interest in data-driven decision making"
+        ],
+        "learningOutcomes": [
+            "Perform advanced data analysis using Excel, Power BI, and Python",
+            "Create interactive dashboards and reports",
+            "Clean and prepare data for analysis",
+            "Visualize data effectively to communicate insights",
+            "Apply analytics to solve business problems",
+            "Automate reporting workflows"
+        ],
+        "modules": [
+            {
+                "id": 1,
+                "title": "Introduction to Data Analytics",
+                "duration": "1.5 weeks",
+                "summary": "Learn the basics of analytics and KPIs",
+                "topics": [
+                    "Understanding the data lifecycle",
+                    "Types of analytics: Descriptive, Diagnostic, Predictive, Prescriptive",
+                    "Key business metrics and KPIs",
+                    "Case studies on data-driven decisions"
+                ],
+                "learningOutcomes": [
+                    "Understand the data analytics lifecycle",
+                    "Identify key business metrics",
+                    "Apply analytics frameworks to business problems"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Excel for Data Analytics",
+                "duration": "2 weeks",
+                "summary": "Excel cleaning, formulas, automation, dashboards",
+                "topics": [
+                    "Data cleaning and preparation in Excel",
+                    "Advanced formulas, PivotTables, and Lookups",
+                    "Dashboards and automation using Macros",
+                    "Data visualization with charts and conditional formatting"
+                ],
+                "learningOutcomes": [
+                    "Master advanced Excel techniques",
+                    "Build automated dashboards",
+                    "Clean and transform data efficiently"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Power BI & Dashboarding",
+                "duration": "2 weeks",
+                "summary": "Interactive dashboards using Power BI",
+                "topics": [
+                    "Power Query and DAX functions",
+                    "Building interactive dashboards",
+                    "Connecting Power BI with SQL and APIs",
+                    "Storytelling with data visualization"
+                ],
+                "learningOutcomes": [
+                    "Create professional Power BI dashboards",
+                    "Use DAX for advanced calculations",
+                    "Tell compelling stories with data"
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Python for Data Analysis",
+                "duration": "2 weeks",
+                "summary": "EDA and visualization with Python",
+                "topics": [
+                    "Using Pandas and NumPy for data manipulation",
+                    "Exploratory Data Analysis (EDA)",
+                    "Matplotlib and Seaborn visualizations",
+                    "Integrating Python reports with BI tools"
+                ],
+                "learningOutcomes": [
+                    "Perform data analysis using Python",
+                    "Create insightful visualizations",
+                    "Integrate Python with BI workflows"
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Capstone Projects",
+                "duration": "2.5 weeks",
+                "summary": "Apply all tools in real case studies",
+                "topics": [
+                    "Sales Forecasting Dashboard using Power BI",
+                    "Customer Retention Analysis using Python",
+                    "Excel KPI Dashboard for Business Insights"
+                ],
+                "learningOutcomes": [
+                    "Build end-to-end analytics projects",
+                    "Create a professional portfolio",
+                    "Apply analytics to real business scenarios"
+                ]
+            }
+        ],
+        "faq": [
+            {
+                "question": "Do I need programming knowledge?",
+                "answer": "Not necessarily. The course starts with Excel and Power BI before moving to basic Python for analytics."
+            },
+            {
+                "question": "Can I use these skills for business roles?",
+                "answer": "Yes. It's designed for professionals aiming to make data-driven decisions."
+            },
+            {
+                "question": "Will I learn Power BI deeply?",
+                "answer": "Absolutely! You'll master dashboarding and data storytelling with Power BI."
+            }
+        ]
+    },
+    "full-stack-python": {
+        "slug": "full-stack-python",
+        "title": "Full Stack Python Development",
+        "subtitle": "Build modern web applications from scratch using Python, Django, FastAPI, React, and PostgreSQL. Learn to design, develop, and deploy full-stack projects end-to-end.",
+        "description": "This Full Stack Python Development course gives you everything you need to become a professional full-stack developer. You'll master front-end technologies (HTML, CSS, React) and back-end frameworks (Django, FastAPI), learn how to design APIs, integrate databases like PostgreSQL and MongoDB, and deploy your apps to AWS or Render. Every module blends theory, projects, and professional best practices so you can confidently build and deploy production-grade applications.",
+        "level": "intermediate",
+        "duration": 840,
+        "durationWeeks": 14,
+        "rating": 4.8,
+        "studentsEnrolled": 10342,
+        "price": 18999,
+        "currency": "INR",
+        "seatsLeft": 64,
+        "instructor": {
+            "name": "Amit Patel",
+            "title": "Full Stack Architect",
+            "bio": "Senior software engineer with 12+ years building scalable web applications for startups and enterprises.",
+            "image": "/assets/instructors/python-instructor.jpg"
+        },
+        "highlights": [
+            "Hands-on Django & React integration",
+            "API development with FastAPI",
+            "Real-world deployment projects",
+            "Certificate of Completion",
+            "Full-stack projects portfolio",
+            "Code reviews by mentors",
+            "Career guidance sessions"
+        ],
+        "prerequisites": [
+            "Basic Python programming knowledge",
+            "Understanding of HTML and CSS",
+            "Familiarity with command line"
+        ],
+        "learningOutcomes": [
+            "Build full-stack web applications with React and Django",
+            "Design and implement RESTful APIs",
+            "Work with databases (PostgreSQL, MongoDB)",
+            "Deploy applications to cloud platforms",
+            "Implement authentication and authorization",
+            "Follow industry best practices for web development"
+        ],
+        "modules": [
+            {
+                "id": 1,
+                "title": "Frontend Foundations",
+                "duration": "2 weeks",
+                "summary": "HTML, CSS, JS, and responsive web design",
+                "topics": [
+                    "HTML5 semantic structure",
+                    "CSS3, Flexbox & Grid layouts",
+                    "JavaScript fundamentals",
+                    "Responsive design with Tailwind CSS"
+                ],
+                "learningOutcomes": [
+                    "Build responsive web interfaces",
+                    "Master modern CSS techniques",
+                    "Write clean JavaScript code"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "React for Frontend Development",
+                "duration": "2 weeks",
+                "summary": "Modern frontend development with React",
+                "topics": [
+                    "React components and state management",
+                    "React Hooks and Context API",
+                    "Routing and API calls with Axios",
+                    "Building reusable UI components"
+                ],
+                "learningOutcomes": [
+                    "Build dynamic React applications",
+                    "Manage application state effectively",
+                    "Create reusable components"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Python & Django Backend",
+                "duration": "2.5 weeks",
+                "summary": "Django models, views, and templates",
+                "topics": [
+                    "Django setup and project structure",
+                    "Models, migrations, and ORM",
+                    "Views, URLs, and template rendering",
+                    "Authentication and admin customization"
+                ],
+                "learningOutcomes": [
+                    "Build robust backend systems with Django",
+                    "Design database schemas",
+                    "Implement authentication systems"
+                ]
+            },
+            {
+                "id": 4,
+                "title": "REST APIs with FastAPI",
+                "duration": "2 weeks",
+                "summary": "Building modern APIs using FastAPI",
+                "topics": [
+                    "Introduction to FastAPI and Pydantic",
+                    "CRUD operations and routing",
+                    "JWT authentication and middleware",
+                    "Connecting FastAPI with databases"
+                ],
+                "learningOutcomes": [
+                    "Build high-performance APIs",
+                    "Implement API authentication",
+                    "Document APIs automatically"
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Database Management",
+                "duration": "1.5 weeks",
+                "summary": "PostgreSQL and MongoDB integration",
+                "topics": [
+                    "Relational DB design with PostgreSQL",
+                    "Using Django ORM and SQLAlchemy",
+                    "MongoDB and NoSQL concepts",
+                    "Database optimization and indexing"
+                ],
+                "learningOutcomes": [
+                    "Design efficient database schemas",
+                    "Work with both SQL and NoSQL databases",
+                    "Optimize database performance"
+                ]
+            },
+            {
+                "id": 6,
+                "title": "DevOps & Deployment",
+                "duration": "2 weeks",
+                "summary": "CI/CD, Docker, and cloud deployment",
+                "topics": [
+                    "Dockerizing Django & React apps",
+                    "CI/CD using GitHub Actions",
+                    "Deploying to AWS, Render, or Vercel",
+                    "Monitoring and debugging production apps"
+                ],
+                "learningOutcomes": [
+                    "Deploy applications to production",
+                    "Set up CI/CD pipelines",
+                    "Monitor and maintain applications"
+                ]
+            },
+            {
+                "id": 7,
+                "title": "Capstone Project",
+                "duration": "2 weeks",
+                "summary": "End-to-end web app with React + Django",
+                "topics": [
+                    "Design and plan the project architecture",
+                    "Integrate REST API with React frontend",
+                    "Add authentication and admin panel",
+                    "Deploy and document the full project"
+                ],
+                "learningOutcomes": [
+                    "Build a complete full-stack application",
+                    "Create a portfolio-worthy project",
+                    "Apply all learned concepts"
+                ]
+            }
+        ],
+        "faq": [
+            {
+                "question": "Do I need prior Python knowledge?",
+                "answer": "Basic Python familiarity is helpful, but the course starts with a refresher on Python essentials."
+            },
+            {
+                "question": "Will I learn both frontend and backend?",
+                "answer": "Yes! You'll master React for frontend and Django/FastAPI for backend."
+            },
+            {
+                "question": "Is this course beginner-friendly?",
+                "answer": "Yes, it's designed for intermediate learners but includes foundational material."
+            },
+            {
+                "question": "Are deployment topics covered?",
+                "answer": "Absolutely. You'll learn to containerize apps with Docker and deploy them to AWS or Render."
+            }
+        ]
+    },
+    "full-stack-java": {
+        "slug": "full-stack-java",
+        "title": "Full Stack Java Development",
+        "subtitle": "Become a Java full-stack developer by mastering Spring Boot, React, and MySQL. Learn to build and deploy enterprise-grade applications.",
+        "description": "This Full Stack Java program is designed to help you become a professional full-stack engineer. You'll master backend development with Java, Spring Boot, and JPA, then learn frontend skills with React. The program also covers REST APIs, security, deployment, and cloud integrations. By the end, you'll have hands-on experience building production-grade applications using Java technologies.",
+        "level": "intermediate",
+        "duration": 900,
+        "durationWeeks": 15,
+        "rating": 4.7,
+        "studentsEnrolled": 9824,
+        "price": 19999,
+        "currency": "INR",
+        "seatsLeft": 55,
+        "instructor": {
+            "name": "Vikram Singh",
+            "title": "Java Enterprise Architect",
+            "bio": "20+ years of experience building enterprise Java applications for global corporations.",
+            "image": "/assets/instructors/java-instructor.jpg"
+        },
+        "highlights": [
+            "Comprehensive Spring Boot training",
+            "Frontend mastery with React",
+            "Integration with MySQL and REST APIs",
+            "Professional-grade deployment guides",
+            "Real-world enterprise projects",
+            "Mock interviews & career support",
+            "Code reviews & mentorship"
+        ],
+        "prerequisites": [
+            "Basic programming knowledge",
+            "Understanding of object-oriented concepts",
+            "Familiarity with web technologies"
+        ],
+        "learningOutcomes": [
+            "Build enterprise-grade Java applications",
+            "Master Spring Boot framework",
+            "Develop React frontends integrated with Java backends",
+            "Implement security and authentication",
+            "Deploy applications to cloud platforms",
+            "Follow enterprise development best practices"
+        ],
+        "modules": [
+            {
+                "id": 1,
+                "title": "Core Java & OOPs",
+                "duration": "2 weeks",
+                "summary": "Java foundations and object-oriented principles",
+                "topics": [
+                    "Java syntax, data types, and loops",
+                    "Object-Oriented Programming concepts",
+                    "Collections, Streams, and Lambdas",
+                    "Exception handling and I/O operations"
+                ],
+                "learningOutcomes": [
+                    "Master Java fundamentals",
+                    "Apply OOP principles",
+                    "Use modern Java features"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Spring Boot & REST APIs",
+                "duration": "2.5 weeks",
+                "summary": "Backend API development using Spring Boot",
+                "topics": [
+                    "Spring Boot setup and annotations",
+                    "Dependency Injection and Beans",
+                    "Creating RESTful APIs with Spring MVC",
+                    "Connecting APIs with MySQL using JPA"
+                ],
+                "learningOutcomes": [
+                    "Build REST APIs with Spring Boot",
+                    "Implement dependency injection",
+                    "Work with JPA and Hibernate"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "React Frontend Development",
+                "duration": "2 weeks",
+                "summary": "Frontend UI with React and Axios integration",
+                "topics": [
+                    "React components and state management",
+                    "Routing and dynamic pages",
+                    "API integration with Spring Boot backend",
+                    "Styling with Tailwind CSS and responsive design"
+                ],
+                "learningOutcomes": [
+                    "Build modern React applications",
+                    "Integrate frontend with Java backend",
+                    "Create responsive user interfaces"
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Security & Authentication",
+                "duration": "2 weeks",
+                "summary": "Spring Security and JWT authentication",
+                "topics": [
+                    "Spring Security configuration",
+                    "JWT authentication and authorization",
+                    "Role-based access control",
+                    "Session management best practices"
+                ],
+                "learningOutcomes": [
+                    "Implement secure authentication",
+                    "Configure Spring Security",
+                    "Manage user sessions"
+                ]
+            },
+            {
+                "id": 5,
+                "title": "DevOps & Deployment",
+                "duration": "2 weeks",
+                "summary": "Docker, CI/CD, and AWS deployment",
+                "topics": [
+                    "Containerizing apps with Docker",
+                    "Setting up CI/CD pipelines",
+                    "Deploying to AWS and Render",
+                    "Monitoring and scaling applications"
+                ],
+                "learningOutcomes": [
+                    "Deploy Java applications to production",
+                    "Set up automated deployment pipelines",
+                    "Monitor application performance"
+                ]
+            },
+            {
+                "id": 6,
+                "title": "Capstone Project",
+                "duration": "2 weeks",
+                "summary": "Enterprise-level full-stack project",
+                "topics": [
+                    "Project setup and planning",
+                    "Backend and frontend integration",
+                    "Testing and deployment",
+                    "Documentation and final presentation"
+                ],
+                "learningOutcomes": [
+                    "Build a complete enterprise application",
+                    "Create a professional portfolio project",
+                    "Apply all learned technologies"
+                ]
+            }
+        ],
+        "faq": [
+            {
+                "question": "Will I learn Spring Boot in depth?",
+                "answer": "Yes! You'll go from basics to advanced Spring Boot, including REST APIs and Security."
+            },
+            {
+                "question": "Is React covered as part of the course?",
+                "answer": "Yes, you'll build a React frontend integrated with your Spring Boot backend."
+            },
+            {
+                "question": "Do you include deployment?",
+                "answer": "Yes, you'll learn Docker, CI/CD pipelines, and AWS deployment."
+            }
+        ]
+    },
+    "sap": {
+        "slug": "sap",
+        "title": "SAP Functional & Technical Training",
+        "subtitle": "Become an SAP professional by mastering core enterprise modules like FICO, MM, and HANA with real-world projects.",
+        "description": "This course provides a complete understanding of SAP systems — both functional and technical sides. You'll learn how to configure and manage key modules like Finance (FICO), Material Management (MM), and HANA. By the end, you'll be able to implement and manage SAP systems confidently with hands-on exposure.",
+        "level": "intermediate",
+        "duration": 660,
+        "durationWeeks": 11,
+        "rating": 4.7,
+        "studentsEnrolled": 8125,
+        "price": 17999,
+        "currency": "INR",
+        "seatsLeft": 58,
+        "instructor": {
+            "name": "Suresh Reddy",
+            "title": "SAP Certified Consultant",
+            "bio": "SAP consultant with 18+ years implementing SAP solutions for Fortune 500 companies globally.",
+            "image": "/assets/instructors/sap-instructor.jpg"
+        },
+        "highlights": [
+            "Hands-on SAP access",
+            "Industry-standard training",
+            "SAP certification guidance",
+            "Lifetime access to resources",
+            "Module-wise Assignments",
+            "Career Counseling",
+            "Mentorship from SAP Experts"
+        ],
+        "prerequisites": [
+            "Basic understanding of business processes",
+            "Computer literacy",
+            "Interest in enterprise systems"
+        ],
+        "learningOutcomes": [
+            "Configure and manage SAP FICO module",
+            "Implement SAP MM for procurement",
+            "Work with SAP HANA database",
+            "Understand SAP architecture and workflows",
+            "Prepare for SAP certification exams",
+            "Apply SAP knowledge to real business scenarios"
+        ],
+        "modules": [
+            {
+                "id": 1,
+                "title": "Introduction to SAP Ecosystem",
+                "duration": "1.5 weeks",
+                "summary": "ERP basics and SAP architecture",
+                "topics": [
+                    "Understanding ERP and SAP architecture",
+                    "SAP navigation and user roles",
+                    "Functional vs Technical modules overview"
+                ],
+                "learningOutcomes": [
+                    "Understand SAP ecosystem",
+                    "Navigate SAP interface",
+                    "Identify different SAP modules"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "SAP FICO Module",
+                "duration": "3 weeks",
+                "summary": "Financial Accounting & Reporting",
+                "topics": [
+                    "Financial Accounting configuration",
+                    "General Ledger, Accounts Payable/Receivable",
+                    "Asset Accounting and Financial Reporting"
+                ],
+                "learningOutcomes": [
+                    "Configure SAP FICO module",
+                    "Manage financial transactions",
+                    "Generate financial reports"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "SAP MM & Logistics",
+                "duration": "2.5 weeks",
+                "summary": "Procurement & Inventory Management",
+                "topics": [
+                    "Procurement and inventory workflows",
+                    "Vendor and purchase order management",
+                    "Integration between MM and FICO modules"
+                ],
+                "learningOutcomes": [
+                    "Manage procurement processes",
+                    "Handle inventory operations",
+                    "Integrate MM with other modules"
+                ]
+            },
+            {
+                "id": 4,
+                "title": "SAP HANA",
+                "duration": "2 weeks",
+                "summary": "Data modeling and optimization",
+                "topics": [
+                    "In-memory database concepts",
+                    "Modeling with SAP HANA Studio",
+                    "Performance optimization and reporting"
+                ],
+                "learningOutcomes": [
+                    "Work with SAP HANA database",
+                    "Create data models",
+                    "Optimize database performance"
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Capstone Projects",
+                "duration": "2 weeks",
+                "summary": "Simulated enterprise SAP projects",
+                "topics": [
+                    "Configuring SAP FICO for a manufacturing firm",
+                    "SAP MM end-to-end procurement project"
+                ],
+                "learningOutcomes": [
+                    "Apply SAP knowledge to real scenarios",
+                    "Complete end-to-end implementations",
+                    "Build SAP project portfolio"
+                ]
+            }
+        ],
+        "faq": [
+            {
+                "question": "Do I need prior ERP knowledge?",
+                "answer": "No, it starts from scratch with SAP basics and access setup."
+            },
+            {
+                "question": "Will I get practical exposure?",
+                "answer": "Yes! You'll work on real SAP sandbox environments and case studies."
+            }
+        ]
+    },
+    "cyber-security": {
+        "slug": "cyber-security",
+        "title": "Cyber Security & Ethical Hacking",
+        "subtitle": "Master cybersecurity from fundamentals to advanced ethical hacking. Learn network defense, penetration testing, and secure coding.",
+        "description": "This Cyber Security & Ethical Hacking course teaches you how to secure systems, networks, and data in the digital age. You'll gain a deep understanding of vulnerabilities, exploits, and ethical hacking tools. From reconnaissance and penetration testing to digital forensics and malware analysis — every topic is covered through real-world labs and simulations.",
+        "level": "intermediate",
+        "duration": 720,
+        "durationWeeks": 12,
+        "rating": 4.8,
+        "studentsEnrolled": 11456,
+        "price": 17999,
+        "currency": "INR",
+        "seatsLeft": 69,
+        "instructor": {
+            "name": "Arjun Malhotra",
+            "title": "Certified Ethical Hacker",
+            "bio": "Cybersecurity expert with CEH, OSCP certifications and 14+ years protecting critical infrastructure.",
+            "image": "/assets/instructors/cyber-instructor.jpg"
+        },
+        "highlights": [
+            "Hands-on penetration testing labs",
+            "Real-time attack simulations",
+            "Certified Ethical Hacking concepts",
+            "24/7 expert mentorship",
+            "Access to cybersecurity sandbox",
+            "Industry-recognized certificate",
+            "Capstone red team projects"
+        ],
+        "prerequisites": [
+            "Basic networking knowledge",
+            "Understanding of operating systems",
+            "Interest in cybersecurity"
+        ],
+        "learningOutcomes": [
+            "Perform ethical hacking and penetration testing",
+            "Secure networks and web applications",
+            "Conduct digital forensics investigations",
+            "Implement defensive security measures",
+            "Understand OWASP Top 10 vulnerabilities",
+            "Prepare for CEH certification"
+        ],
+        "modules": [
+            {
+                "id": 1,
+                "title": "Introduction to Cybersecurity",
+                "duration": "1.5 weeks",
+                "summary": "Foundations and security models",
+                "topics": [
+                    "Understanding cybersecurity fundamentals",
+                    "Threat types and security principles",
+                    "CIA Triad and risk management basics"
+                ],
+                "learningOutcomes": [
+                    "Understand cybersecurity principles",
+                    "Identify different threat types",
+                    "Apply security frameworks"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Networking & Security Tools",
+                "duration": "2 weeks",
+                "summary": "Networking essentials and tools",
+                "topics": [
+                    "TCP/IP, OSI model, and protocols",
+                    "Wireshark, Nmap, and Metasploit basics",
+                    "Network configuration and monitoring"
+                ],
+                "learningOutcomes": [
+                    "Master networking fundamentals",
+                    "Use security tools effectively",
+                    "Analyze network traffic"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Ethical Hacking Methodologies",
+                "duration": "2 weeks",
+                "summary": "Scanning, enumeration, and exploitation",
+                "topics": [
+                    "Information gathering and footprinting",
+                    "Vulnerability scanning with Nessus",
+                    "Exploitation techniques and payloads",
+                    "Post-exploitation and privilege escalation"
+                ],
+                "learningOutcomes": [
+                    "Perform penetration testing",
+                    "Exploit vulnerabilities ethically",
+                    "Conduct security assessments"
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Web Application Security",
+                "duration": "2 weeks",
+                "summary": "OWASP Top 10 and secure web coding",
+                "topics": [
+                    "Cross-site scripting (XSS) and SQL injection",
+                    "Session hijacking and CSRF prevention",
+                    "Security testing for web APIs"
+                ],
+                "learningOutcomes": [
+                    "Secure web applications",
+                    "Identify and fix vulnerabilities",
+                    "Apply OWASP best practices"
+                ]
+            },
+            {
+                "id": 5,
+                "title": "Defensive Security & Forensics",
+                "duration": "2 weeks",
+                "summary": "Network defense and investigation",
+                "topics": [
+                    "Firewalls, IDS/IPS, and SIEM tools",
+                    "Incident response and threat hunting",
+                    "Digital forensics and malware analysis"
+                ],
+                "learningOutcomes": [
+                    "Implement defensive measures",
+                    "Respond to security incidents",
+                    "Conduct forensic investigations"
+                ]
+            },
+            {
+                "id": 6,
+                "title": "Capstone Red Team Project",
+                "duration": "2 weeks",
+                "summary": "Simulate real-world attacks ethically",
+                "topics": [
+                    "Setting up attack simulation labs",
+                    "Performing penetration testing report",
+                    "Red vs Blue team exercises"
+                ],
+                "learningOutcomes": [
+                    "Conduct full penetration tests",
+                    "Create professional security reports",
+                    "Apply all learned techniques"
+                ]
+            }
+        ],
+        "faq": [
+            {
+                "question": "Is prior experience in networking required?",
+                "answer": "Basic understanding of computers and networks helps, but we cover networking essentials early on."
+            },
+            {
+                "question": "Will I perform live hacking exercises?",
+                "answer": "Yes! The program includes sandbox labs and ethical penetration testing simulations."
+            },
+            {
+                "question": "Will I get a certification?",
+                "answer": "Yes, you'll receive a certificate of completion and guidance toward CEH certification prep."
+            }
+        ]
+    }
+}

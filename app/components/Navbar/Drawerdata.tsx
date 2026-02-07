@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const mobileNavItems = [
   { label: "Home", href: "/" },
@@ -14,17 +15,10 @@ const mobileNavItems = [
 
 export default function Drawerdata({ closeMenu }: { closeMenu: () => void }) {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <div className="flex flex-col space-y-5">
-      {/* Logo
-      <motion.div
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <h1 className="font-bold text-xl text-blue-700">EduSphere</h1>
-        <p className="text-sm text-gray-500 -mt-1">Learn. Apply. Succeed.</p>
-      </motion.div> */}
 
       {/* ---------- LOGO ---------- */}
       <Link href="/" className="flex items-center select-none">
@@ -111,7 +105,7 @@ export default function Drawerdata({ closeMenu }: { closeMenu: () => void }) {
       <div className="border-t border-white/40 pt-5 space-y-3">
 
         <button
-          onClick={() => { closeMenu(); window.location.href = '/signin'; }}
+          onClick={() => { closeMenu(); router.push('/signin'); }}
           className="
       w-full py-3 rounded-full 
       bg-white/40 backdrop-blur-xl
@@ -124,7 +118,7 @@ export default function Drawerdata({ closeMenu }: { closeMenu: () => void }) {
         </button>
 
         <button
-          onClick={() => { closeMenu(); window.location.href = '/register'; }}
+          onClick={() => { closeMenu(); router.push('/register'); }}
           className="
       w-full py-3 rounded-full
       bg-blue-600 text-white font-medium

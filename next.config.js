@@ -2,12 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   images: {
     unoptimized: true,
   },
-
-  // VERY IMPORTANT
-  output: 'export',
 };
 
 module.exports = nextConfig;

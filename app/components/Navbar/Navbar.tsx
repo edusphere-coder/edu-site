@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import Registerdialog from "./Registerdialog";
 import Signdialog from "./Signdialog";
+import { authAPI } from "../../lib/api";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
@@ -22,14 +23,51 @@ const navigation = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  const [user, setUser] = React.useState<any>(null);
   const pathname = usePathname();
 
   React.useEffect(() => {
     const handleScroll = () =>
       setScrolled(window.scrollY > window.innerHeight * 0.4);
     window.addEventListener("scroll", handleScroll);
+
+    // Auth check with token expiration validation
+    const checkAuth = () => {
+      const token = localStorage.getItem("token");
+      const storedUser = localStorage.getItem("user");
+      const tokenExpiration = localStorage.getItem("tokenExpiration");
+
+      if (token && storedUser && tokenExpiration) {
+        const currentTime = new Date().getTime();
+        const expirationTime = parseInt(tokenExpiration);
+
+        // Check if token has expired
+        if (currentTime > expirationTime) {
+          // Token expired, logout
+          authAPI.logout();
+          setIsAuthenticated(false);
+          setUser(null);
+        } else {
+          setIsAuthenticated(true);
+          setUser(JSON.parse(storedUser));
+        }
+      } else {
+        setIsAuthenticated(false);
+        setUser(null);
+      }
+    };
+
+    checkAuth();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogout = () => {
+    authAPI.logout();
+    setIsAuthenticated(false);
+    setUser(null);
+  };
 
   const lightRoutes = ["/courses", "/signin", "/register", "/about", "/contact", "/signin", "/register"];
   const isLightPage = lightRoutes.some(route => pathname.startsWith(route));
@@ -38,8 +76,8 @@ export default function Navbar() {
     <Disclosure
       as="nav"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled || isLightPage
-          ? "bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-[0_2px_12px_rgba(0,0,0,0.05)]"
-          : "bg-transparent"
+        ? "bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-[0_2px_12px_rgba(0,0,0,0.05)]"
+        : "bg-transparent"
         }`}
     >
       <div className="max-w-7xl mx-auto px-8">
@@ -109,8 +147,8 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className={`relative text-[15px] font-medium transition-all duration-300 group ${scrolled || isLightPage
-                      ? "text-gray-800 hover:text-black"
-                      : "text-white hover:text-gray-200"
+                    ? "text-gray-800 hover:text-black"
+                    : "text-white hover:text-gray-200"
                     }`}
                 >
                   {item.name}
@@ -123,10 +161,26 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* ---------- SIGNIN / REGISTER ---------- */}
+          {/* ---------- SIGNIN / REGISTER / LOGOUT ---------- */}
           <div className="hidden md:flex items-center space-x-4">
-            <Signdialog />
-            <Registerdialog />
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-4">
+                <span className={`text-[15px] font-medium ${scrolled || isLightPage ? "text-gray-800" : "text-white"}`}>
+                  Hi, {user?.first_name || "User"}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="bg-red-500/80 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-all duration-300 shadow-lg text-sm font-medium"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <>
+                <Signdialog />
+                <Registerdialog />
+              </>
+            )}
           </div>
 
           {/* ---------- MOBILE NAVBAR ---------- */}
