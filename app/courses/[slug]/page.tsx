@@ -197,9 +197,9 @@ export default function CoursePage() {
   if (!displayCourse) return null;
 
   const levelColors = {
-    beginner: "from-green-500 to-emerald-500",
-    intermediate: "from-blue-500 to-cyan-500",
-    advanced: "from-red-500 to-pink-500",
+    beginner: "from-green-600 to-emerald-600",
+    intermediate: "from-blue-600 to-cyan-600",
+    advanced: "from-purple-600 to-pink-600",
   };
 
   const levelColor = levelColors[displayCourse.level as keyof typeof levelColors] || "from-gray-500 to-gray-700";
@@ -235,15 +235,11 @@ export default function CoursePage() {
             </div>
 
             <h1 className="text-5xl font-bold text-white mb-4">{displayCourse.title}</h1>
-            <p className="text-white/90 text-lg mb-6 max-w-3xl">
+            <p className="text-white text-lg mb-6 max-w-3xl">
               {enhancedData?.subtitle || displayCourse.description}
             </p>
 
-            <div className="flex flex-wrap items-center gap-6 text-white/90 mb-8">
-              {/* <div className="flex items-center gap-2">
-                <UserGroupIcon className="w-5 h-5" />
-                <span>Instructor: {displayCourse.instructor_name || "TBA"}</span>
-               </div> */}
+            <div className="flex flex-wrap items-center gap-6 text-white mb-8">
               <div className="flex items-center gap-2">
                 <DocumentTextIcon className="w-5 h-5" />
                 <span>{presentations.length} Presentations</span>
@@ -433,7 +429,7 @@ export default function CoursePage() {
                           <h3 className={`font-bold text-lg mb-1 ${expandedModule === index ? 'text-white' : 'text-gray-900'}`}>
                             {module.title}
                           </h3>
-                          <p className={`text-sm ${expandedModule === index ? 'text-white/80' : 'text-gray-600'}`}>
+                          <p className={`text-sm ${expandedModule === index ? 'text-white' : 'text-gray-600'}`}>
                             {module.summary}
                           </p>
                         </div>

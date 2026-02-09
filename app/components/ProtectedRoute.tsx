@@ -56,7 +56,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
                         <p className="text-sm text-blue-800">
                             <strong>Need immediate access?</strong><br />
-                            Please contact the admin team at <a href="mailto:admin@edusphere.com" className="underline">admin@edusphere.com</a>
+                            Please contact the admin team at <a href="mailto:recruitment@eduspherecourses.com" className="underline">admin@edusphere.com</a>
                         </p>
                     </div>
                     <button

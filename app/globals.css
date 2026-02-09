@@ -10,9 +10,9 @@
 }
 
 html {
-  --scroll-behavior: smooth!important;
-  scroll-behavior: smooth!important;
-  }
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
+}
 
 body {
   margin: 0;
@@ -26,7 +26,7 @@ html:not([data-scroll="0"]) .navbar {
   top: 0;
   width: 100%;
   background-color: white !important;
-  opacity: 1.9;
+  opacity: 1;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
   transition: 0.4s linear;
   padding-top: 1px;
@@ -84,32 +84,51 @@ html:not([data-scroll="0"]) .navbar {
   box-shadow: 0px 4px 20px rgba(110, 127, 185, 0.1);
 }
 
-.footer-icons{
+.footer-icons {
   transition: .5s;
 }
 
-.footer-icons:hover{
+.footer-icons:hover {
   transform: translateY(-8px);
 }
 
 .space-links {
   transition: .3s;
 }
+
 .space-links:hover {
   letter-spacing: 1px;
 }
+
 svg {
   display: block !important;
   visibility: visible !important;
 }
+
 /* globals.css */
 
 /* hide default scrollbar but keep scroll functionality */
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 .hide-scrollbar::-webkit-scrollbar {
   width: 0px;
   height: 0px;
+}
+
+/* Ensure all text is fully opaque and visible */
+.text-visible {
+  opacity: 1 !important;
+  color: inherit;
+}
+
+/* Ensure proper contrast for light backgrounds */
+.bg-white *,
+.bg-gray-50 *,
+.bg-gray-100 * {
+  color: inherit;
 }

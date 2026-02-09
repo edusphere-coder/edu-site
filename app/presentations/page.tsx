@@ -28,12 +28,12 @@ interface Presentation {
 }
 
 const COURSES = [
-    { id: 1, title: "Machine Learning", slug: "machine-learning", icon: "🤖", color: "from-purple-500 to-pink-500" },
-    { id: 2, title: "Full Stack Java", slug: "full-stack-java", icon: "☕", color: "from-orange-500 to-red-500" },
-    { id: 3, title: "Full Stack Python", slug: "full-stack-python", icon: "🐍", color: "from-blue-500 to-cyan-500" },
-    { id: 4, title: "Data Analytics", slug: "data-analytics", icon: "📊", color: "from-green-500 to-emerald-500" },
-    { id: 5, title: "Cyber Security", slug: "cyber-security", icon: "🔒", color: "from-red-500 to-rose-500" },
-    { id: 6, title: "SAP", slug: "sap", icon: "💼", color: "from-indigo-500 to-purple-500" },
+    { id: 1, title: "Machine Learning", slug: "machine-learning", icon: "🤖", color: "from-purple-600 to-pink-600" },
+    { id: 2, title: "Full Stack Java", slug: "full-stack-java", icon: "☕", color: "from-orange-500 to-red-600" },
+    { id: 3, title: "Full Stack Python", slug: "full-stack-python", icon: "🐍", color: "from-blue-600 to-cyan-600" },
+    { id: 4, title: "Data Analytics", slug: "data-analytics", icon: "📊", color: "from-green-600 to-emerald-600" },
+    { id: 5, title: "Cyber Security", slug: "cyber-security", icon: "🔒", color: "from-indigo-600 to-purple-600" },
+    { id: 6, title: "SAP", slug: "sap", icon: "💼", color: "from-slate-700 to-gray-800" },
 ];
 
 export default function PresentationsPage() {
@@ -121,7 +121,7 @@ export default function PresentationsPage() {
                                             <span className="text-3xl">{course.icon}</span>
                                             <div className="flex-1">
                                                 <p className="font-semibold text-sm">{course.title}</p>
-                                                <p className={`text-xs mt-1 ${selectedCourse.id === course.id ? 'text-white/80' : 'text-gray-500'}`}>
+                                                <p className={`text-xs mt-1 ${selectedCourse.id === course.id ? 'text-white' : 'text-gray-500'}`}>
                                                     {filteredPresentations.length > 0 && selectedCourse.id === course.id
                                                         ? `${filteredPresentations.length} presentations`
                                                         : presentations.filter(p => p.course_id === course.id).length + ' presentations'
@@ -167,12 +167,12 @@ export default function PresentationsPage() {
                                             <span className="text-6xl">{selectedCourse.icon}</span>
                                             <div>
                                                 <h2 className="text-3xl font-bold text-white">{selectedCourse.title}</h2>
-                                                <p className="text-white/90 mt-1">
+                                                <p className="text-white mt-1">
                                                     {filteredPresentations.length} Presentation{filteredPresentations.length !== 1 ? 's' : ''} Available
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-2 text-white/80">
+                                        <div className="flex items-center gap-2 text-white">
                                             <SparklesIcon className="w-5 h-5" />
                                             <span className="text-sm">Download and study at your own pace</span>
                                         </div>

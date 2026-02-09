@@ -15,8 +15,8 @@ const navigation = [
   { name: "Home", href: "/", section: "#home" },
   { name: "Courses", href: "#courses-section" },
   { name: "About Us", href: "#About-Us-section" },
-  { name: "Presentations", href: "/" },
-  { name: "Recordings", href: "/" },
+  { name: "Presentations", href: "/presentations" },
+  { name: "Recordings", href: "/recordings" },
   { name: "Contact Us", href: "/contact" },
 ];
 
@@ -170,7 +170,7 @@ export default function Navbar() {
                 </span>
                 <button
                   onClick={handleLogout}
-                  className="bg-red-500/80 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-all duration-300 shadow-lg text-sm font-medium"
+                  className="bg-gradient-to-r from-[#EF4444] to-[#DC2626] hover:shadow-[0_0_12px_rgba(239,68,68,0.35)] hover:scale-105 active:scale-95 transition-all duration-300 text-white font-medium py-2 px-4 rounded"
                 >
                   Logout
                 </button>
