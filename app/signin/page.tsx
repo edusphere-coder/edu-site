@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { authAPI } from "../lib/api";
-import Script from "next/script";
 
 export default function LoginSection() {
   const router = useRouter();
@@ -15,7 +14,6 @@ export default function LoginSection() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
-  const [googleLoading, setGoogleLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -25,68 +23,12 @@ export default function LoginSection() {
     }));
   };
 
-  const handleGoogleSuccess = async (credentialResponse: any) => {
-    setGoogleLoading(true);
-    setError("");
-    setSuccess("");
-
-    try {
-      // Send the Google credential to your backend
-      const response = await authAPI.googleLogin({
-        token: credentialResponse.credential,
-      });
-
-      if (response.success) {
-        setSuccess("Google login successful!");
-        // Wait a moment to show success message, then redirect
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 1000);
-      }
-    } catch (err: any) {
-      if (err.response?.status === 403) {
-        setError("Your account is pending activation. Please contact the admin team for access.");
-      } else if (err.response?.status === 404) {
-        setError("No account found with this Google email. Please register first.");
-      } else {
-        setError(err.response?.data?.message || "Google login failed. Please try again.");
-      }
-    } finally {
-      setGoogleLoading(false);
-    }
-  };
-
   useEffect(() => {
     // Check if user just registered
     if (searchParams.get("registered") === "true") {
       setSuccess("Registration successful! Please login.");
     }
   }, [searchParams]);
-
-  useEffect(() => {
-    // Initialize Google Sign-In when component mounts
-    const initializeGoogle = () => {
-      if (window.google) {
-        window.google.accounts.id.initialize({
-          client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "",
-          callback: handleGoogleSuccess,
-        });
-        // Render the Google button
-        const buttonElement = document.getElementById("google-signin-button");
-        if (buttonElement) {
-          window.google.accounts.id.renderButton(buttonElement, {
-            theme: "dark",
-            size: "large",
-            width: "100%",
-          });
-        }
-      }
-    };
-
-    // Wait a bit for Google SDK to load
-    const timer = setTimeout(initializeGoogle, 100);
-    return () => clearTimeout(timer);
-  }, [handleGoogleSuccess]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -129,14 +71,7 @@ export default function LoginSection() {
   };
 
   return (
-    <>
-      <Script
-        src="https://accounts.google.com/gsi/client"
-        async
-        defer
-        strategy="afterInteractive"
-      />
-      <section className="relative w-full pt-32 pb-20 px-6 lg:px-24 flex justify-center bg-page-light">
+    <section className="relative w-full pt-32 pb-20 px-6 lg:px-24 flex justify-center bg-page-light">
 
       {/* Login Card */}
       <div className="relative z-10 w-full max-w-lg 
@@ -161,15 +96,6 @@ export default function LoginSection() {
             {error}
           </div>
         )}
-
-        {/* Google Button */}
-        <div id="google-signin-button" className="mb-6"></div>
-
-        <div className="flex items-center gap-4 mb-6">
-          <span className="h-px flex-1 bg-white/40"></span>
-          <span className="text-white/80 text-sm">Or, Sign In with email</span>
-          <span className="h-px flex-1 bg-white/40"></span>
-        </div>
 
         {/* Form */}
         <form className="space-y-8" onSubmit={handleSubmit}>
@@ -244,6 +170,5 @@ export default function LoginSection() {
       </div>
 
     </section>
-    </>
   );
 }

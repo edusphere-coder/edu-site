@@ -65,18 +65,6 @@ export const authAPI = {
         return response.data;
     },
 
-    googleLogin: async (googleData: { token: string }) => {
-        const response = await api.post('/auth/google', googleData);
-        if (response.data.success) {
-            localStorage.setItem('token', response.data.data.token);
-            localStorage.setItem('user', JSON.stringify(response.data.data.user));
-            // Store token expiration time (1 hour from now)
-            const expirationTime = new Date().getTime() + (60 * 60 * 1000); // 1 hour in milliseconds
-            localStorage.setItem('tokenExpiration', expirationTime.toString());
-        }
-        return response.data;
-    },
-
     getProfile: async () => {
         const response = await api.get('/auth/profile');
         return response.data;
