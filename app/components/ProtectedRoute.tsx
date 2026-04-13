@@ -51,7 +51,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
                         Hi {user?.first_name}, your account is currently pending activation.
                     </p>
                     <p className="text-gray-600 mb-6">
-                        Our team is reviewing your registration. You'll receive an email once your account is activated.
+                        Our team is reviewing your registration. You&apos;ll receive an email once your account is activated.
                     </p>
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
                         <p className="text-sm text-blue-800">

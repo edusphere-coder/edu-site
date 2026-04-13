@@ -91,7 +91,7 @@ export default function ContactSection() {
         <h2 className="text-4xl font-bold mb-2">Contact Us</h2>
 
         <p className="mb-2 opacity-90">
-          Get in touch! We'd love to hear from you.
+          Get in touch! We&apos;d love to hear from you.
         </p>
         <p className="mb-10 opacity-90">
           Fill up the form below to send us a message.
