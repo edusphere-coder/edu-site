@@ -97,6 +97,30 @@ export default function ContactSection() {
           Fill up the form below to send us a message.
         </p>
 
+        {/* Direct Contact Information */}
+        <div className="mb-10 p-6 bg-white/10 border border-white/20 rounded-2xl">
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <span className="text-lg">📧</span>
+              <div>
+                <p className="text-sm opacity-75">Email</p>
+                <a href="mailto:eduspherecourses@gmail.com" className="text-white hover:opacity-75 transition">
+                  eduspherecourses@gmail.com
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-lg">📱</span>
+              <div>
+                <p className="text-sm opacity-75">Phone</p>
+                <a href="tel:+917331177116" className="text-white hover:opacity-75 transition">
+                  +91 7331177116
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {success && (
           <div className="mb-6 p-3 bg-green-500/20 border border-green-500/50 rounded-xl text-sm">
             {success}
