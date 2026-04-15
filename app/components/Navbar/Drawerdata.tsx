@@ -8,8 +8,6 @@ const mobileNavItems = [
   { label: "Home", href: "/" },
   { label: "Courses", href: "#courses-section" },
   { label: "About Us", href: "#About-Us-section" },
-  { label: "Presentations", href: "/" },
-  { label: "Recordings", href: "/" },
   { label: "Contact Us", href: "/contact" },
 ];
 

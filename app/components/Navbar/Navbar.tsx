@@ -15,8 +15,6 @@ const navigation = [
   { name: "Home", href: "/", section: "#home" },
   { name: "Courses", href: "#courses-section" },
   { name: "About Us", href: "#About-Us-section" },
-  { name: "Presentations", href: "/presentations" },
-  { name: "Recordings", href: "/recordings" },
   { name: "Contact Us", href: "/contact" },
 ];
 
