@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { courseAPI } from "../../lib/api";
+import { isAuthenticated } from "../../lib/auth";
 import {
   AcademicCapIcon,
   ClockIcon,
@@ -203,6 +204,7 @@ export default function CoursePage() {
   };
 
   const levelColor = levelColors[displayCourse.level as keyof typeof levelColors] || "from-gray-500 to-gray-700";
+  const loggedIn = isAuthenticated();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50 pt-24 pb-12">
@@ -257,10 +259,12 @@ export default function CoursePage() {
             </div>
 
             <div className="flex gap-4 flex-wrap">
-              <button className="px-8 py-4 bg-white text-gray-900 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
-                <AcademicCapIcon className="w-5 h-5" />
-                Enroll Now
-              </button>
+              {loggedIn && (
+                <button className="px-8 py-4 bg-white text-gray-900 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                  <AcademicCapIcon className="w-5 h-5" />
+                  Enroll Now
+                </button>
+              )}
               <button className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold hover:bg-white/30 transition-all duration-300">
                 Preview Course
               </button>

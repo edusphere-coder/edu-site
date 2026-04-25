@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { isAuthenticated } from "../../lib/auth";
 
 // "use client";
 // import "swiper/css";
@@ -298,7 +300,7 @@ const courses: Course[] = [
   },
 ];
 
-const CourseCard = ({ course }: { course: Course }) => {
+const CourseCard = ({ course, loggedIn }: { course: Course; loggedIn: boolean }) => {
   return (
     <motion.div
       initial={{ scale: 1 }}
@@ -342,16 +344,20 @@ const CourseCard = ({ course }: { course: Course }) => {
 
         {/* Buttons */}
         <div className="flex justify-between items-center">
-          <Link
-            href="/contact"
-            className="px-6 py-2.5 rounded-full font-semibold text-white 
+          {loggedIn ? (
+            <Link
+              href="/contact"
+              className="px-6 py-2.5 rounded-full font-semibold text-white 
              bg-gradient-to-r from-[#5C6EF8] to-[#8A5CF6]
              shadow-sm hover:shadow-[0_0_12px_rgba(92,110,248,0.35)]
              hover:scale-105 active:scale-95 
              transition-all duration-300 text-xs sm:text-sm"
-          >
-            Enroll
-          </Link>
+            >
+              Enroll
+            </Link>
+          ) : (
+            <span />
+          )}
 
           <Link
             href={`/courses/${course.slug}`}
@@ -366,6 +372,12 @@ const CourseCard = ({ course }: { course: Course }) => {
 };
 
 const Courses = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setLoggedIn(isAuthenticated());
+  }, []);
+
   return (
     <main
       id="courses-section"
@@ -418,7 +430,7 @@ const Courses = () => {
           "
         >
           {courses.map((course) => (
-            <CourseCard key={course.id} course={course} />
+            <CourseCard key={course.id} course={course} loggedIn={loggedIn} />
           ))}
         </div>
       </div>
