@@ -100,20 +100,20 @@ export default function ContactSection() {
         {/* Direct Contact Information */}
         <div className="mb-10 p-6 bg-white/10 border border-white/20 rounded-2xl">
           <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="text-lg">📧</span>
-              <div>
+            <div className="flex items-start gap-3">
+              <span className="text-lg leading-none mt-1">📧</span>
+              <div className="min-w-0 flex-1">
                 <p className="text-sm opacity-75">Email</p>
-                <a href="mailto:eduspherecourses@gmail.com" className="text-white hover:opacity-75 transition">
+                <a href="mailto:eduspherecourses@gmail.com" className="text-white hover:opacity-75 transition break-all">
                   eduspherecourses@gmail.com
                 </a>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="text-lg">📱</span>
-              <div>
+            <div className="flex items-start gap-3">
+              <span className="text-lg leading-none mt-1">📱</span>
+              <div className="min-w-0 flex-1">
                 <p className="text-sm opacity-75">Phone</p>
-                <a href="tel:+917331177116" className="text-white hover:opacity-75 transition">
+                <a href="tel:+917331177116" className="text-white hover:opacity-75 transition break-all">
                   +91 7331177116
                 </a>
               </div>
@@ -202,7 +202,7 @@ export default function ContactSection() {
             />
           </div>
 
-          <div className="flex justify-between pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:justify-between pt-4">
             <button
               type="submit"
               disabled={loading}

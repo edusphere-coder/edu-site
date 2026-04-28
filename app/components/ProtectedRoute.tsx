@@ -54,9 +54,9 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
                         Our team is reviewing your registration. You&apos;ll receive an email once your account is activated.
                     </p>
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                        <p className="text-sm text-blue-800">
+                        <p className="text-sm text-blue-800 break-words">
                             <strong>Need immediate access?</strong><br />
-                            Please contact the admin team at <a href="mailto:recruitment@eduspherecourses.com" className="underline">admin@edusphere.com</a>
+                            Please contact the admin team at <a href="mailto:recruitment@eduspherecourses.com" className="underline break-all">admin@edusphere.com</a>
                         </p>
                     </div>
                     <button
