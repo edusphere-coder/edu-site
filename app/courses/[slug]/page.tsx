@@ -123,6 +123,7 @@ export default function CoursePage() {
   const [accessCode, setAccessCode] = useState("");
   const [accessError, setAccessError] = useState("");
   const [hasAccess, setHasAccess] = useState(false);
+  const [showPreview, setShowPreview] = useState(false);
 
   // Get enhanced course data
   const enhancedData: EnhancedCourseData | undefined = (enhancedCourseData as any)[slug];
@@ -237,6 +238,16 @@ export default function CoursePage() {
     setAccessError("Invalid access code. Please contact team for access code.");
   };
 
+  const handlePreviewClick = () => {
+    setShowPreview(true);
+    requestAnimationFrame(() => {
+      const previewSection = document.getElementById("course-preview-section");
+      if (previewSection) {
+        previewSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -349,7 +360,11 @@ export default function CoursePage() {
                   Access Granted
                 </span>
               )}
-              <button className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold hover:bg-white/30 transition-all duration-300">
+              <button
+                type="button"
+                onClick={handlePreviewClick}
+                className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold hover:bg-white/30 transition-all duration-300"
+              >
                 Preview Course
               </button>
             </div>
@@ -360,6 +375,60 @@ export default function CoursePage() {
           <div className="mb-8 bg-white rounded-2xl border border-yellow-200 p-5 text-center">
             <p className="text-gray-800 font-semibold">Enter access code to view all course details.</p>
             <p className="text-sm text-gray-600 mt-1">Note: Contact team for access code.</p>
+          </div>
+        )}
+
+        {showPreview && (
+          <div id="course-preview-section" className="mb-8 bg-white rounded-3xl shadow-lg p-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Course Preview</h2>
+            <p className="text-gray-700 text-lg mb-6">
+              {enhancedData?.subtitle || displayCourse.description}
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <div className="p-4 bg-gray-50 rounded-xl">
+                <p className="text-sm text-gray-500">Level</p>
+                <p className="font-semibold text-gray-900 capitalize">{displayCourse.level}</p>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-xl">
+                <p className="text-sm text-gray-500">Duration</p>
+                <p className="font-semibold text-gray-900">
+                  {enhancedData ? `${enhancedData.durationWeeks} weeks` : formatDuration(displayCourse.duration)}
+                </p>
+              </div>
+              <div className="p-4 bg-gray-50 rounded-xl">
+                <p className="text-sm text-gray-500">Rating</p>
+                <p className="font-semibold text-gray-900">{enhancedData?.rating || "N/A"}</p>
+              </div>
+            </div>
+
+            {enhancedData?.highlights && enhancedData.highlights.length > 0 && (
+              <>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Preview Highlights</h3>
+                <ul className="space-y-2 mb-6">
+                  {enhancedData.highlights.slice(0, 4).map((highlight, index) => (
+                    <li key={index} className="flex items-start gap-2 text-gray-700">
+                      <CheckCircleIcon className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {enhancedData?.modules && enhancedData.modules.length > 0 && (
+              <>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Sample Curriculum</h3>
+                <div className="space-y-3">
+                  {enhancedData.modules.slice(0, 2).map((module) => (
+                    <div key={module.id} className="p-4 border border-gray-200 rounded-xl">
+                      <p className="font-semibold text-gray-900">{module.title}</p>
+                      <p className="text-sm text-gray-600">{module.summary}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         )}
 
