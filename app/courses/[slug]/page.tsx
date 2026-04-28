@@ -226,7 +226,6 @@ export default function CoursePage() {
 
   const levelColor = levelColors[displayCourse.level as keyof typeof levelColors] || "from-gray-500 to-gray-700";
   const loggedIn = isAuthenticated();
-  const expectedAccessCode = process.env.NEXT_PUBLIC_COURSE_ACCESS_CODE || "EDU123";
 
   const handleEnrollClick = () => {
     setAccessError("");
@@ -237,17 +236,12 @@ export default function CoursePage() {
   const handleAccessSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (accessCode.trim() !== expectedAccessCode) {
-      setAccessError("Invalid access code. Please contact team for access code.");
-      return;
-    }
-
     try {
       setEnrollLoading(true);
       setAccessError("");
 
       if (course?.id) {
-        await enrollmentAPI.enroll(course.id);
+        await enrollmentAPI.enroll(course.id, accessCode.trim().toUpperCase());
       }
 
       setHasAccess(true);
