@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { courseAPI } from "../../lib/api";
 import { isAuthenticated } from "../../lib/auth";
@@ -109,6 +109,7 @@ const formatPrice = (price: number, currency: string): string => {
 
 export default function CoursePage() {
   const params = useParams();
+  const searchParams = useSearchParams();
   const slug = params.slug as string;
 
   const [course, setCourse] = useState<Course | null>(null);
@@ -118,6 +119,10 @@ export default function CoursePage() {
   const [loading, setLoading] = useState(true);
   const [expandedModule, setExpandedModule] = useState<number | null>(null);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [showAccessPrompt, setShowAccessPrompt] = useState(false);
+  const [accessCode, setAccessCode] = useState("");
+  const [accessError, setAccessError] = useState("");
+  const [hasAccess, setHasAccess] = useState(false);
 
   // Get enhanced course data
   const enhancedData: EnhancedCourseData | undefined = (enhancedCourseData as any)[slug];
@@ -205,14 +210,79 @@ export default function CoursePage() {
 
   const levelColor = levelColors[displayCourse.level as keyof typeof levelColors] || "from-gray-500 to-gray-700";
   const loggedIn = isAuthenticated();
+  const expectedAccessCode = process.env.NEXT_PUBLIC_COURSE_ACCESS_CODE || "EDU123";
+
+  useEffect(() => {
+    if (loggedIn && searchParams.get("unlock") === "true") {
+      setShowAccessPrompt(true);
+    }
+  }, [loggedIn, searchParams]);
 
   const handleEnrollClick = () => {
-    window.alert("Enter unique code for access.\n\nNote: Contact team for access code.");
+    setAccessError("");
+    setShowAccessPrompt(true);
+  };
+
+  const handleAccessSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (accessCode.trim() === expectedAccessCode) {
+      setHasAccess(true);
+      setShowAccessPrompt(false);
+      setAccessError("");
+      setAccessCode("");
+      return;
+    }
+
+    setAccessError("Invalid access code. Please contact team for access code.");
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {showAccessPrompt && (
+          <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Enter Access Code</h3>
+              <p className="text-gray-600 mb-5">Enter unique code for access.</p>
+
+              <form onSubmit={handleAccessSubmit} className="space-y-4">
+                <input
+                  type="text"
+                  value={accessCode}
+                  onChange={(e) => setAccessCode(e.target.value)}
+                  placeholder="Enter access code"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl outline-none focus:border-purple-500"
+                />
+
+                {accessError && (
+                  <p className="text-sm text-red-600">{accessError}</p>
+                )}
+
+                <div className="flex gap-3">
+                  <button
+                    type="submit"
+                    className="flex-1 py-3 bg-gradient-to-r from-[#5C6EF8] to-[#8A5CF6] text-white rounded-xl font-semibold"
+                  >
+                    Submit Code
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowAccessPrompt(false)}
+                    className="px-4 py-3 border border-gray-300 text-gray-700 rounded-xl font-semibold"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+
+              <p className="mt-5 text-sm text-gray-500 border-t pt-4">
+                Note: Contact team for access code.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Hero Section */}
         <motion.div
@@ -263,15 +333,21 @@ export default function CoursePage() {
             </div>
 
             <div className="flex gap-4 flex-wrap">
-              {loggedIn && (
+              {loggedIn && !hasAccess && (
                 <button
                   type="button"
                   onClick={handleEnrollClick}
                   className="px-8 py-4 bg-white text-gray-900 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
                 >
                   <AcademicCapIcon className="w-5 h-5" />
-                  Enroll Now
+                  Enter Access Code
                 </button>
+              )}
+              {loggedIn && hasAccess && (
+                <span className="px-8 py-4 bg-green-500 text-white rounded-xl font-bold flex items-center gap-2">
+                  <CheckCircleIcon className="w-5 h-5" />
+                  Access Granted
+                </span>
               )}
               <button className="px-8 py-4 bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 rounded-xl font-bold hover:bg-white/30 transition-all duration-300">
                 Preview Course
@@ -280,7 +356,16 @@ export default function CoursePage() {
           </div>
         </motion.div>
 
+        {!hasAccess && loggedIn && (
+          <div className="mb-8 bg-white rounded-2xl border border-yellow-200 p-5 text-center">
+            <p className="text-gray-800 font-semibold">Enter access code to view all course details.</p>
+            <p className="text-sm text-gray-600 mt-1">Note: Contact team for access code.</p>
+          </div>
+        )}
+
         {/* Tabs */}
+        {hasAccess ? (
+        <>
         <div className="bg-white rounded-2xl shadow-lg mb-8 p-2 flex gap-2 overflow-x-auto">
           {[
             { id: "overview", label: "Overview", icon: ChartBarIcon },
@@ -607,6 +692,8 @@ export default function CoursePage() {
             </motion.div>
           )}
         </AnimatePresence>
+        </>
+        ) : null}
       </div>
     </div>
   );
