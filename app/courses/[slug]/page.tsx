@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { courseAPI } from "../../lib/api";
@@ -124,6 +124,7 @@ export default function CoursePage() {
   const [accessError, setAccessError] = useState("");
   const [hasAccess, setHasAccess] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
+  const previewSectionRef = useRef<HTMLDivElement | null>(null);
 
   // Get enhanced course data
   const enhancedData: EnhancedCourseData | undefined = (enhancedCourseData as any)[slug];
@@ -168,6 +169,12 @@ export default function CoursePage() {
       setShowAccessPrompt(true);
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    if (showPreview && previewSectionRef.current) {
+      previewSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [showPreview]);
 
   if (loading) {
     return (
@@ -239,13 +246,12 @@ export default function CoursePage() {
   };
 
   const handlePreviewClick = () => {
+    if (showPreview && previewSectionRef.current) {
+      previewSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
     setShowPreview(true);
-    requestAnimationFrame(() => {
-      const previewSection = document.getElementById("course-preview-section");
-      if (previewSection) {
-        previewSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
   };
 
   return (
@@ -379,7 +385,7 @@ export default function CoursePage() {
         )}
 
         {showPreview && (
-          <div id="course-preview-section" className="mb-8 bg-white rounded-3xl shadow-lg p-8">
+          <div ref={previewSectionRef} id="course-preview-section" className="mb-8 bg-white rounded-3xl shadow-lg p-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">Course Preview</h2>
             <p className="text-gray-700 text-lg mb-6">
               {enhancedData?.subtitle || displayCourse.description}
