@@ -83,19 +83,18 @@ export default function LoginSection() {
         <h2 className="text-4xl font-bold mb-2">Welcome back!</h2>
         <p className="opacity-90 mb-8">Sign in to your account</p>
 
-        {/* Success Message */}
-        {success && (
-          <div className="mb-6 p-3 bg-green-500/20 border border-green-500/50 rounded-xl text-white text-sm">
-            {success}
-          </div>
-        )}
-
-        {/* Error Message */}
-        {error && (
-          <div className="mb-6 p-3 bg-red-500/20 border border-red-500/50 rounded-xl text-white text-sm">
-            {error}
-          </div>
-        )}
+        {/* Feedback Message (constant position) */}
+        <div className="mb-6 min-h-[56px]">
+          {success ? (
+            <div className="p-3 bg-green-500/20 border border-green-500/50 rounded-xl text-white text-sm">
+              {success}
+            </div>
+          ) : error ? (
+            <div className="p-3 bg-red-500/20 border border-red-500/50 rounded-xl text-white text-sm">
+              {error}
+            </div>
+          ) : null}
+        </div>
 
         {/* Form */}
         <form className="space-y-8" onSubmit={handleSubmit}>

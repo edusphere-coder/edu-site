@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { authAPI } from "../lib/api";
-import Link from "next/link";
 
 export default function RegisterSection() {
   const router = useRouter();
@@ -115,27 +114,18 @@ export default function RegisterSection() {
         <h2 className="text-4xl font-bold mb-2">Create your account</h2>
         <p className="opacity-90 mb-8">Sign Up with your details</p>
 
-        {/* Success Message */}
-        {success && (
-          <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-white">
-            <p className="font-semibold mb-2">✓ Registration Successful!</p>
-            <p className="text-sm mb-2">Our team will review your account and get back to you soon.</p>
-            <p className="text-xs opacity-90 mb-3">You&apos;ll receive an email once your account is activated.</p>
-            <Link
-              href="/signin"
-              className="inline-block px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-medium transition"
-            >
-              Go to Login →
-            </Link>
-          </div>
-        )}
-
-        {/* Error Message */}
-        {error && (
-          <div className="mb-6 p-3 bg-red-500/20 border border-red-500/50 rounded-xl text-white text-sm">
-            {error}
-          </div>
-        )}
+        {/* Feedback Message (constant position) */}
+        <div className="mb-6 min-h-[56px]">
+          {success ? (
+            <div className="p-3 bg-green-500/20 border border-green-500/50 rounded-xl text-white text-sm">
+              Registration successful! Please login.
+            </div>
+          ) : error ? (
+            <div className="p-3 bg-red-500/20 border border-red-500/50 rounded-xl text-white text-sm">
+              {error}
+            </div>
+          ) : null}
+        </div>
 
         {/* Google Button */}
         <button
