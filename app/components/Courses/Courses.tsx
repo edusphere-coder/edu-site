@@ -301,6 +301,10 @@ const courses: Course[] = [
 ];
 
 const CourseCard = ({ course, loggedIn }: { course: Course; loggedIn: boolean }) => {
+  const handleEnrollClick = () => {
+    window.alert("Enter unique code for access.\n\nNote: Contact team for access code.");
+  };
+
   return (
     <motion.div
       initial={{ scale: 1 }}
@@ -345,8 +349,9 @@ const CourseCard = ({ course, loggedIn }: { course: Course; loggedIn: boolean })
         {/* Buttons */}
         <div className="flex justify-between items-center">
           {loggedIn ? (
-            <Link
-              href="/contact"
+            <button
+              type="button"
+              onClick={handleEnrollClick}
               className="px-6 py-2.5 rounded-full font-semibold text-white 
              bg-gradient-to-r from-[#5C6EF8] to-[#8A5CF6]
              shadow-sm hover:shadow-[0_0_12px_rgba(92,110,248,0.35)]
@@ -354,7 +359,7 @@ const CourseCard = ({ course, loggedIn }: { course: Course; loggedIn: boolean })
              transition-all duration-300 text-xs sm:text-sm"
             >
               Enroll
-            </Link>
+            </button>
           ) : (
             <span />
           )}

@@ -206,6 +206,10 @@ export default function CoursePage() {
   const levelColor = levelColors[displayCourse.level as keyof typeof levelColors] || "from-gray-500 to-gray-700";
   const loggedIn = isAuthenticated();
 
+  const handleEnrollClick = () => {
+    window.alert("Enter unique code for access.\n\nNote: Contact team for access code.");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-purple-50 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -260,7 +264,11 @@ export default function CoursePage() {
 
             <div className="flex gap-4 flex-wrap">
               {loggedIn && (
-                <button className="px-8 py-4 bg-white text-gray-900 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleEnrollClick}
+                  className="px-8 py-4 bg-white text-gray-900 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                >
                   <AcademicCapIcon className="w-5 h-5" />
                   Enroll Now
                 </button>
