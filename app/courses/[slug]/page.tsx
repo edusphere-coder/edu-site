@@ -240,8 +240,21 @@ export default function CoursePage() {
       setEnrollLoading(true);
       setAccessError("");
 
+      const normalizedCode = accessCode.trim().toUpperCase();
+      if (!normalizedCode) {
+        setAccessError("Access code is required.");
+        return;
+      }
+
       if (course?.id) {
-        await enrollmentAPI.enroll(course.id, accessCode.trim().toUpperCase());
+        const enrollResponse = await enrollmentAPI.enroll(course.id, normalizedCode);
+        if (!enrollResponse?.success) {
+          setAccessError(enrollResponse?.message || "Invalid access code.");
+          return;
+        }
+      } else {
+        setAccessError("Course not found.");
+        return;
       }
 
       setHasAccess(true);
@@ -249,7 +262,7 @@ export default function CoursePage() {
       setAccessCode("");
       setEnrollSuccess("Access granted and course enrollment completed successfully.");
     } catch (error: any) {
-      setAccessError(error?.response?.data?.message || "Enrollment failed. Please try again.");
+      setAccessError(error?.response?.data?.message || error?.message || "Enrollment failed. Please try again.");
     } finally {
       setEnrollLoading(false);
     }
