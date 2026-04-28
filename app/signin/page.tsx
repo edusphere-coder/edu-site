@@ -81,11 +81,11 @@ export default function LoginSection() {
 
         {/* Heading */}
         <h2 className="text-4xl font-bold mb-2">Welcome back!</h2>
-        <p className="opacity-90 mb-8">Sign in to your account</p>
+        <p className="opacity-90 mb-4">Sign in to your account</p>
 
         {/* Feedback Message */}
         {success || error ? (
-          <div className="mb-6">
+          <div className="mb-4">
             {success ? (
               <div className="p-3 bg-green-500/20 border border-green-500/50 rounded-xl text-white text-sm">
                 {success}
@@ -99,7 +99,7 @@ export default function LoginSection() {
         ) : null}
 
         {/* Form */}
-        <form className="space-y-8" onSubmit={handleSubmit}>
+        <form className="space-y-6" onSubmit={handleSubmit}>
 
           {/* Email */}
           <div>
