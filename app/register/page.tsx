@@ -61,6 +61,14 @@ export default function RegisterSection() {
       return;
     }
 
+    if (formData.phone) {
+      const phoneRegex = /^((\+91|0)?\s?-?\s?)?[6-9]\d{9}$/;
+      if (!phoneRegex.test(formData.phone.trim())) {
+        setError("Phone number must be 10 digits and start with 6, 7, 8, or 9");
+        return;
+      }
+    }
+
     if (!formData.acceptPolicy) {
       setError("Please accept the Privacy Policy");
       return;
@@ -95,7 +103,12 @@ export default function RegisterSection() {
         });
       }
     } catch (err: any) {
-      setError(err.response?.data?.message || "Registration failed. Please try again.");
+      const validationErrors = err?.response?.data?.errors;
+      if (Array.isArray(validationErrors) && validationErrors.length > 0) {
+        setError(validationErrors.map((item: any) => item.msg).join(". "));
+      } else {
+        setError(err.response?.data?.message || "Registration failed. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
