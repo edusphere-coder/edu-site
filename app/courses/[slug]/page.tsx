@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { courseAPI } from "../../lib/api";
+import { courseAPI, enrollmentAPI } from "../../lib/api";
 import { isAuthenticated } from "../../lib/auth";
 import {
   AcademicCapIcon,
@@ -122,7 +122,9 @@ export default function CoursePage() {
   const [showAccessPrompt, setShowAccessPrompt] = useState(false);
   const [accessCode, setAccessCode] = useState("");
   const [accessError, setAccessError] = useState("");
+  const [enrollLoading, setEnrollLoading] = useState(false);
   const [hasAccess, setHasAccess] = useState(false);
+  const [enrollSuccess, setEnrollSuccess] = useState("");
   const [showPreview, setShowPreview] = useState(false);
   const previewSectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -228,21 +230,35 @@ export default function CoursePage() {
 
   const handleEnrollClick = () => {
     setAccessError("");
+    setEnrollSuccess("");
     setShowAccessPrompt(true);
   };
 
-  const handleAccessSubmit = (e: React.FormEvent) => {
+  const handleAccessSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (accessCode.trim() === expectedAccessCode) {
-      setHasAccess(true);
-      setShowAccessPrompt(false);
-      setAccessError("");
-      setAccessCode("");
+    if (accessCode.trim() !== expectedAccessCode) {
+      setAccessError("Invalid access code. Please contact team for access code.");
       return;
     }
 
-    setAccessError("Invalid access code. Please contact team for access code.");
+    try {
+      setEnrollLoading(true);
+      setAccessError("");
+
+      if (course?.id) {
+        await enrollmentAPI.enroll(course.id);
+      }
+
+      setHasAccess(true);
+      setShowAccessPrompt(false);
+      setAccessCode("");
+      setEnrollSuccess("Access granted and course enrollment completed successfully.");
+    } catch (error: any) {
+      setAccessError(error?.response?.data?.message || "Enrollment failed. Please try again.");
+    } finally {
+      setEnrollLoading(false);
+    }
   };
 
   const handlePreviewClick = () => {
@@ -280,9 +296,10 @@ export default function CoursePage() {
                 <div className="flex gap-3">
                   <button
                     type="submit"
+                    disabled={enrollLoading}
                     className="flex-1 py-3 bg-gradient-to-r from-[#5C6EF8] to-[#8A5CF6] text-white rounded-xl font-semibold"
                   >
-                    Submit Code
+                    {enrollLoading ? "Enrolling..." : "Submit Code"}
                   </button>
                   <button
                     type="button"
@@ -381,6 +398,12 @@ export default function CoursePage() {
           <div className="mb-8 bg-white rounded-2xl border border-yellow-200 p-5 text-center">
             <p className="text-gray-800 font-semibold">Enter access code to view all course details.</p>
             <p className="text-sm text-gray-600 mt-1">Note: Contact team for access code.</p>
+          </div>
+        )}
+
+        {enrollSuccess && (
+          <div className="mb-8 bg-green-50 border border-green-200 rounded-2xl p-4 text-center text-green-700 font-semibold">
+            {enrollSuccess}
           </div>
         )}
 
