@@ -3,6 +3,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { authAPI } from "../../lib/api";
 
 const mobileNavItems = [
   { label: "Home", href: "/" },
@@ -14,6 +16,44 @@ const mobileNavItems = [
 export default function Drawerdata({ closeMenu }: { closeMenu: () => void }) {
   const pathname = usePathname();
   const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [firstName, setFirstName] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    const tokenExpiration = localStorage.getItem("tokenExpiration");
+
+    if (!token || !user || !tokenExpiration) {
+      setIsAuthenticated(false);
+      setFirstName("");
+      return;
+    }
+
+    const currentTime = new Date().getTime();
+    const expirationTime = parseInt(tokenExpiration, 10);
+
+    if (currentTime > expirationTime) {
+      authAPI.logout();
+      setIsAuthenticated(false);
+      setFirstName("");
+      return;
+    }
+
+    try {
+      const parsedUser = JSON.parse(user);
+      setIsAuthenticated(true);
+      setFirstName(parsedUser?.first_name || "User");
+    } catch {
+      setIsAuthenticated(false);
+      setFirstName("");
+    }
+  }, []);
+
+  const handleLogout = () => {
+    authAPI.logout();
+    closeMenu();
+  };
 
   return (
     <div className="flex flex-col space-y-5">
@@ -101,30 +141,47 @@ export default function Drawerdata({ closeMenu }: { closeMenu: () => void }) {
 
       {/* Auth Buttons */}
       <div className="border-t border-white/40 pt-5 space-y-3">
-
-        <button
-          onClick={() => { closeMenu(); router.push('/signin'); }}
-          className="
+        {isAuthenticated ? (
+          <>
+            <p className="text-sm text-gray-700 text-center">Hi, {firstName}</p>
+            <button
+              onClick={handleLogout}
+              className="
+      w-full py-3 rounded-full
+      bg-red-600 text-white font-medium
+      shadow-md active:scale-95 transition
+    "
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              onClick={() => { closeMenu(); router.push('/signin'); }}
+              className="
       w-full py-3 rounded-full 
       bg-white/40 backdrop-blur-xl
       border border-blue-600
       text-blue-700 font-medium
       active:scale-95 transition
     "
-        >
-          Sign In
-        </button>
+            >
+              Sign In
+            </button>
 
-        <button
-          onClick={() => { closeMenu(); router.push('/register'); }}
-          className="
+            <button
+              onClick={() => { closeMenu(); router.push('/register'); }}
+              className="
       w-full py-3 rounded-full
       bg-blue-600 text-white font-medium
       shadow-md active:scale-95 transition
     "
-        >
-          Register
-        </button>
+            >
+              Register
+            </button>
+          </>
+        )}
 
       </div>
 
