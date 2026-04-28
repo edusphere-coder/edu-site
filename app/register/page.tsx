@@ -114,8 +114,8 @@ export default function RegisterSection() {
         <h2 className="text-4xl font-bold mb-2">Create your account</h2>
         <p className="opacity-90 mb-8">Sign Up with your details</p>
 
-        {/* Feedback Message (constant position) */}
-        <div className="mb-6 min-h-[56px]">
+        {/* Feedback Message */}
+        <div className={success || error ? "mb-6" : "mb-2"}>
           {success ? (
             <div className="p-3 bg-green-500/20 border border-green-500/50 rounded-xl text-white text-sm">
               Registration successful! Please login.
