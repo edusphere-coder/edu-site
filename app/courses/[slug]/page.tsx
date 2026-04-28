@@ -162,6 +162,12 @@ export default function CoursePage() {
     }
   }, [slug]);
 
+  useEffect(() => {
+    if (isAuthenticated() && searchParams.get("unlock") === "true") {
+      setShowAccessPrompt(true);
+    }
+  }, [searchParams]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 pt-24 pb-12 flex items-center justify-center">
@@ -211,12 +217,6 @@ export default function CoursePage() {
   const levelColor = levelColors[displayCourse.level as keyof typeof levelColors] || "from-gray-500 to-gray-700";
   const loggedIn = isAuthenticated();
   const expectedAccessCode = process.env.NEXT_PUBLIC_COURSE_ACCESS_CODE || "EDU123";
-
-  useEffect(() => {
-    if (loggedIn && searchParams.get("unlock") === "true") {
-      setShowAccessPrompt(true);
-    }
-  }, [loggedIn, searchParams]);
 
   const handleEnrollClick = () => {
     setAccessError("");
