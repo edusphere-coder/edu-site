@@ -112,20 +112,22 @@ export default function RegisterSection() {
       >
         {/* Heading */}
         <h2 className="text-4xl font-bold mb-2">Create your account</h2>
-        <p className="opacity-90 mb-8">Sign Up with your details</p>
+        <p className="opacity-90 mb-4">Sign Up with your details</p>
 
         {/* Feedback Message */}
-        <div className={success || error ? "mb-6" : "mb-2"}>
-          {success ? (
-            <div className="p-3 bg-green-500/20 border border-green-500/50 rounded-xl text-white text-sm">
-              Registration successful! Please login.
-            </div>
-          ) : error ? (
-            <div className="p-3 bg-red-500/20 border border-red-500/50 rounded-xl text-white text-sm">
-              {error}
-            </div>
-          ) : null}
-        </div>
+        {success || error ? (
+          <div className="mb-6">
+            {success ? (
+              <div className="p-3 bg-green-500/20 border border-green-500/50 rounded-xl text-white text-sm">
+                Registration successful! Please login.
+              </div>
+            ) : (
+              <div className="p-3 bg-red-500/20 border border-red-500/50 rounded-xl text-white text-sm">
+                {error}
+              </div>
+            )}
+          </div>
+        ) : null}
 
         {/* Form */}
         <form className="space-y-8" onSubmit={handleSubmit}>
