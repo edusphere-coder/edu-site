@@ -128,13 +128,27 @@ export default function CoursePage() {
   const [showPreview, setShowPreview] = useState(false);
   const previewSectionRef = useRef<HTMLDivElement | null>(null);
 
-  // Get enhanced course data
-  const enhancedData: EnhancedCourseData | undefined = (enhancedCourseData as any)[slug];
+  // Get enhanced course data - ensure proper fallback
+  const enhancedData: EnhancedCourseData | undefined = slug ? (enhancedCourseData as Record<string, EnhancedCourseData>)[slug] : undefined;
+  
+  // Debug logging
+  if (!course && !enhancedData && slug) {
+    console.warn(`Course not found for slug: ${slug}`, {
+      availableCourses: Object.keys(enhancedCourseData as any),
+      requestedSlug: slug,
+    });
+  }
 
   useEffect(() => {
     const fetchCourseData = async () => {
       try {
         setLoading(true);
+        
+        // If we have enhanced data, we can show it while fetching API data
+        if (enhancedData) {
+          setLoading(false);
+        }
+
         const courseResponse = await courseAPI.getBySlug(slug);
 
         if (courseResponse.success) {
@@ -153,18 +167,29 @@ export default function CoursePage() {
           if (recResponse.success) {
             setRecordings(recResponse.data.recordings);
           }
+        } else {
+          // If API fails but we have enhanced data, that's fine
+          if (!enhancedData) {
+            console.error("Failed to fetch course data:", courseResponse);
+          }
         }
       } catch (error) {
         console.error("Failed to fetch course data:", error);
+        // Don't set loading to false here if we have enhanced data
+        if (!enhancedData) {
+          setLoading(false);
+        }
       } finally {
-        setLoading(false);
+        if (!enhancedData) {
+          setLoading(false);
+        }
       }
     };
 
     if (slug) {
       fetchCourseData();
     }
-  }, [slug]);
+  }, [slug, enhancedData]);
 
   useEffect(() => {
     if (isAuthenticated() && searchParams.get("unlock") === "true") {
@@ -194,13 +219,22 @@ export default function CoursePage() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 pt-24 pb-12 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Course Not Found</h1>
-          <p className="text-gray-600 mb-8">The course you&apos;re looking for doesn&apos;t exist.</p>
-          <Link
-            href="/presentations"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-semibold hover:shadow-lg transition"
-          >
-            Browse Courses
-          </Link>
+          <p className="text-gray-600 mb-2">The course you&apos;re looking for doesn&apos;t exist.</p>
+          <p className="text-sm text-gray-500 mb-8">Requested course slug: <code className="bg-gray-100 px-2 py-1 rounded">{slug}</code></p>
+          <div className="flex gap-4 justify-center">
+            <Link
+              href="/presentations"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-semibold hover:shadow-lg transition"
+            >
+              Browse Courses
+            </Link>
+            <Link
+              href="/"
+              className="inline-block px-6 py-3 bg-gray-200 text-gray-800 rounded-xl font-semibold hover:bg-gray-300 transition"
+            >
+              Back Home
+            </Link>
+          </div>
         </div>
       </div>
     );
