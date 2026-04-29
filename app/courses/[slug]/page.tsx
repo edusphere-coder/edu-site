@@ -280,14 +280,14 @@ export default function CoursePage() {
         return;
       }
 
-      if (course?.id) {
-        const enrollResponse = await enrollmentAPI.enroll(course.id, normalizedCode);
-        if (!enrollResponse?.success) {
-          setAccessError(enrollResponse?.message || "Invalid access code.");
-          return;
-        }
-      } else {
-        setAccessError("Course not found.");
+      if (!course?.id) {
+        setAccessError("Backend service is unavailable. Please contact support for enrollment.");
+        return;
+      }
+
+      const enrollResponse = await enrollmentAPI.enroll(course.id, normalizedCode);
+      if (!enrollResponse?.success) {
+        setAccessError(enrollResponse?.message || "Invalid access code.");
         return;
       }
 
