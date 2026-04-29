@@ -123,7 +123,7 @@ export const courseAPI = {
 
 // Enrollment API
 export const enrollmentAPI = {
-    enroll: async (courseId: number, accessCode?: string) => {
+    enroll: async (courseId: number | string, accessCode?: string) => {
         const payload = accessCode ? { access_code: accessCode } : {};
         const response = await api.post(`/enrollments/${courseId}`, payload);
         if (!response.data?.success) {
