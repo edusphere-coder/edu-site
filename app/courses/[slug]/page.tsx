@@ -280,6 +280,8 @@ export default function CoursePage() {
         return;
       }
 
+      // Always prefer the numeric course id when available; fall back to the
+      // URL slug so enrollment works even if the course API call failed.
       const courseIdentifier = course?.id || slug;
       if (!courseIdentifier) {
         setAccessError("Unable to identify course. Please refresh and try again.");
@@ -287,17 +289,14 @@ export default function CoursePage() {
       }
 
       const enrollResponse = await enrollmentAPI.enroll(courseIdentifier, normalizedCode);
-      if (!enrollResponse?.success) {
-        setAccessError(enrollResponse?.message || "Invalid access code.");
-        return;
-      }
 
       setHasAccess(true);
       setShowAccessPrompt(false);
       setAccessCode("");
-      setEnrollSuccess("Access granted and course enrollment completed successfully.");
+      setEnrollSuccess(enrollResponse?.message || "Access granted. You are now enrolled in this course!");
     } catch (error: any) {
-      setAccessError(error?.response?.data?.message || error?.message || "Enrollment failed. Please try again.");
+      // error.message is already cleaned up by enrollmentAPI.enroll — show it directly.
+      setAccessError(error?.message || "Enrollment failed. Please try again.");
     } finally {
       setEnrollLoading(false);
     }

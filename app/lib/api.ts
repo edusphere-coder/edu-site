@@ -96,8 +96,14 @@ export const courseAPI = {
     },
 
     getBySlug: async (slug: string) => {
-        const response = await api.get(`/courses/${slug}`);
-        return response.data;
+        try {
+            const response = await api.get(`/courses/${slug}`);
+            return response.data;
+        } catch {
+            // Silently return a failed response so the page can fall back to
+            // static enhanced-course-data and still allow enrollment via slug.
+            return { success: false, data: null };
+        }
     },
 
     getPresentations: async (courseId: number) => {
@@ -124,12 +130,25 @@ export const courseAPI = {
 // Enrollment API
 export const enrollmentAPI = {
     enroll: async (courseId: number | string, accessCode?: string) => {
-        const payload = accessCode ? { access_code: accessCode } : {};
-        const response = await api.post(`/enrollments/${courseId}`, payload);
-        if (!response.data?.success) {
-            throw new Error(response.data?.message || 'Enrollment failed');
+        try {
+            const payload = accessCode ? { access_code: accessCode } : {};
+            const response = await api.post(`/enrollments/${courseId}`, payload);
+            if (!response.data?.success) {
+                throw new Error(response.data?.message || 'Enrollment failed');
+            }
+            return response.data;
+        } catch (error: any) {
+            // Re-throw with a clear message so the caller can display it directly.
+            const serverMessage = error?.response?.data?.message;
+            if (serverMessage) {
+                throw new Error(serverMessage);
+            }
+            if (!error?.response) {
+                // Network-level failure (backend unreachable, CORS, etc.)
+                throw new Error('Unable to connect to server. Please check your internet connection and try again.');
+            }
+            throw error;
         }
-        return response.data;
     },
 
     getMyEnrollments: async () => {
