@@ -107,6 +107,22 @@ const formatPrice = (price: number, currency: string): string => {
   return `${currency} ${price}`;
 };
 
+const getCurrentUserIdentifier = (): string => {
+  try {
+    const userRaw = localStorage.getItem("user");
+    if (!userRaw) return "anonymous";
+
+    const user = JSON.parse(userRaw);
+    return String(user?.id || user?.email || "anonymous");
+  } catch {
+    return "anonymous";
+  }
+};
+
+const getCourseAccessKey = (courseSlug: string): string => {
+  return `course-access:${getCurrentUserIdentifier()}:${courseSlug}`;
+};
+
 export default function CoursePage() {
   const params = useParams();
   const searchParams = useSearchParams();
@@ -196,6 +212,41 @@ export default function CoursePage() {
       setShowAccessPrompt(true);
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    if (!slug || !isAuthenticated()) {
+      setHasAccess(false);
+      return;
+    }
+
+    const cachedAccess = localStorage.getItem(getCourseAccessKey(slug)) === "true";
+    if (cachedAccess) {
+      setHasAccess(true);
+    }
+  }, [slug]);
+
+  useEffect(() => {
+    const syncEnrollmentAccess = async () => {
+      if (!isAuthenticated() || !course?.id || !slug) return;
+
+      try {
+        const response = await enrollmentAPI.getMyEnrollments();
+        const enrollments = response?.data?.enrollments || [];
+        const enrolled = enrollments.some((enrollment: any) => Number(enrollment.course_id) === Number(course.id));
+
+        setHasAccess(enrolled);
+        localStorage.setItem(getCourseAccessKey(slug), enrolled ? "true" : "false");
+
+        if (enrolled) {
+          setShowAccessPrompt(false);
+        }
+      } catch {
+        // Keep cached access state if enrollment sync fails.
+      }
+    };
+
+    syncEnrollmentAccess();
+  }, [course?.id, slug]);
 
   useEffect(() => {
     if (showPreview && previewSectionRef.current) {
@@ -294,6 +345,10 @@ export default function CoursePage() {
       setShowAccessPrompt(false);
       setAccessCode("");
       setEnrollSuccess(enrollResponse?.message || "Access granted. You are now enrolled in this course!");
+
+      if (slug) {
+        localStorage.setItem(getCourseAccessKey(slug), "true");
+      }
     } catch (error: any) {
       // error.message is already cleaned up by enrollmentAPI.enroll — show it directly.
       setAccessError(error?.message || "Enrollment failed. Please try again.");
