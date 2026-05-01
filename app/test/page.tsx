@@ -11,12 +11,14 @@ export default function TestPage() {
     const token = getToken();
 
     if (!token) {
-      // ❌ Not logged in
-      router.push("/signin");
+      setTimeout(() => {
+        router.push("/signin");
+      }, 100); // small delay
     } else {
-      // ✅ Logged in
-      window.location.href =
-        "https://candidatea.speedexam.net/openquiz.aspx?quiz=11BD91FC38B04D638E4CABE4D7D308D2";
+      setTimeout(() => {
+        window.location.href =
+          "https://candidatea.speedexam.net/openquiz.aspx?quiz=11BD91FC38B04D638E4CABE4D7D308D2";
+      }, 100);
     }
   }, []);
 
