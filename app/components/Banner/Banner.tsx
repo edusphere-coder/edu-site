@@ -122,16 +122,14 @@ const Banner = () => {
   </Link>
 
   {/* New Talent Test Button */}
-  <a
-    href="https://candidatea.speedexam.net/openquiz.aspx?quiz=11BD91FC38B04D638E4CABE4D7D308D2"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-8 sm:px-10 py-4 bg-gradient-to-r from-[#00eaff] to-[#3c6fff] 
-    rounded-full text-lg font-semibold text-black shadow-[0_0_20px_rgba(0,234,255,0.5)] 
-    hover:scale-105 transition-all inline-block"
-  >
-    Take Free Test Now
-  </a>
+  <Link
+  href="/test"
+  className="px-8 sm:px-10 py-4 bg-gradient-to-r from-[#00eaff] to-[#3c6fff] 
+  rounded-full text-lg font-semibold text-black shadow-[0_0_20px_rgba(0,234,255,0.5)] 
+  hover:scale-105 transition-all inline-block"
+>
+  Take Free Test Now
+</Link>
 
 </motion.div>
       </div>
