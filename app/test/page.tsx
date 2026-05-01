@@ -2,15 +2,19 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { isAuthenticated } from "../lib/auth";
+import { getToken } from "../lib/auth";
 
 export default function TestPage() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isAuthenticated()) {
+    const token = getToken();
+
+    if (!token) {
+      // ❌ Not logged in
       router.push("/signin");
     } else {
+      // ✅ Logged in
       window.location.href =
         "https://candidatea.speedexam.net/openquiz.aspx?quiz=11BD91FC38B04D638E4CABE4D7D308D2";
     }
