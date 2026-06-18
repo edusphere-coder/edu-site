@@ -90,7 +90,7 @@ const Banner = () => {
           className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6"
         >
           Build a Future-Proof IT Career with{" "}
-          <span className="text-[#00eaff]">Guaranteed Success.</span>
+          <span className="text-[#00eaff]">Guaranteed Succes.</span>
         </motion.h1>
 
         <motion.p
