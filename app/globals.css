@@ -126,6 +126,9 @@ svg {
   color: inherit;
 }
 
+
+
+
 /* Ensure proper contrast for light backgrounds */
 .bg-white *,
 .bg-gray-50 *,

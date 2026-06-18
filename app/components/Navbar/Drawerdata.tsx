@@ -8,8 +8,9 @@ import { authAPI } from "../../lib/api";
 
 const mobileNavItems = [
   { label: "Home", href: "/" },
-  { label: "Courses", href: "#courses-section" },
+  { label: "IT Training", href: "#courses-section" },
   { label: "About Us", href: "#About-Us-section" },
+  { label: "Oversea Education", href: "/education" },
   { label: "Contact Us", href: "/contact" },
 ];
 

@@ -8,7 +8,7 @@ const Features = () => {
   return (
     <section
       id="About-Us-section"
-      className="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-20 lg:pt-20 lg:pb-28"
+      className="relative overflow-hidden pb-16 md:pt-10 md:pb-20 lg:pt-10 lg:pb-28"
     >
       {/* ---------- SVG STACKED CUBE BACKGROUND ---------- */}
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">

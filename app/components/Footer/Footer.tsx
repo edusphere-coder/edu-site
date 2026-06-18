@@ -13,15 +13,15 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-[#0a0129] text-white py-10">
-      <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div className="max-w-7xl mx-auto px-8 flex flex-col lg:flex-row justify-between items-center text-center lg:text-left">
         {/* ---------- LEFT SECTION: LOGO + SOCIAL ICONS ---------- */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-center lg:items-start">
           {/* LOGO */}
-          <Link href="/" className="flex items-center select-none">
+          <Link href="/" className="flex justify-center lg:justify-start items-center select-none">
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 600 160"
-              className="h-20 w-auto"
+              viewBox="0 0 490 160"
+              className="h-14 sm:h-16 lg:h-20 w-auto"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -71,7 +71,7 @@ export default function Footer() {
           </Link>
 
           {/* SOCIAL ICONS (Aligned exactly below logo) */}
-          <div className="flex space-x-4 mt-5 ml-[3.5rem]">
+          <div className="flex space-x-4 mt-5 justify-center lg:ml-12">
             <Link
               href="https://www.instagram.com"
               target="_blank"
@@ -97,7 +97,7 @@ export default function Footer() {
         </div>
 
         {/* ---------- RIGHT SECTION ---------- */}
-        <div className="mt-10 md:mt-0 text-right">
+        <div className="mt-10 md:mt-0 text-center lg:text-right">
           <p className="text-lg font-semibold text-indigo-300">Andrapradesh, Bangalore</p>
           <p className="text-sm text-gray-300">
             © {currentYear} EduSphere. All rights reserved.

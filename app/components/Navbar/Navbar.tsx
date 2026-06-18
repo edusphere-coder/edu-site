@@ -13,8 +13,9 @@ import { usePathname } from "next/navigation";
 
 const navigation = [
   { name: "Home", href: "/", section: "#home" },
-  { name: "Courses", href: "#courses-section" },
+  { name: "IT Training", href: "#courses-section" },
   { name: "About Us", href: "#About-Us-section" },
+  { name: "Oversea Education", href: "/education" },
   { name: "Contact Us", href: "/contact" },
 ];
 
@@ -135,7 +136,7 @@ export default function Navbar() {
           </Link>
 
           {/* ---------- NAV LINKS ---------- */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden lg:flex space-x-6">
             {navigation.map((item) => (
               <motion.div
                 key={item.name}
@@ -160,7 +161,7 @@ export default function Navbar() {
           </div>
 
           {/* ---------- SIGNIN / REGISTER / LOGOUT ---------- */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4">
             {isAuthenticated ? (
               <div className="flex items-center space-x-4">
                 <span className={`text-[15px] font-medium ${scrolled || isLightPage ? "text-gray-800" : "text-white"}`}>
@@ -182,7 +183,7 @@ export default function Navbar() {
           </div>
 
           {/* ---------- MOBILE NAVBAR ---------- */}
-          <div className="block md:hidden">
+          <div className="block lg:hidden">
             <Bars3Icon
               className={`h-7 w-7 cursor-pointer ${scrolled || isLightPage ? "text-gray-900" : "text-white"
                 }`}

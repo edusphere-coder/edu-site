@@ -381,7 +381,7 @@ const Courses = () => {
   return (
     <main
       id="courses-section"
-      className="relative min-h-screen px-6 py-24 overflow-hidden bg-white"
+      className="relative min-h-screen px-6 py-20 overflow-hidden bg-white"
     >
       {/* Background Pattern */}
       <div

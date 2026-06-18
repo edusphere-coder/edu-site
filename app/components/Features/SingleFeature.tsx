@@ -38,7 +38,7 @@ const SingleFeature = ({ feature }: { feature: Feature }) => {
       <div className={`wow fadeInUp ${visibilityFix}`} data-wow-delay=".15s">
 
         {/* Icon */}
-        <div className="mb-10 flex h-[70px] w-[70px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
+        <div className="mb-3 sm:mb-10 flex h-[70px] w-[70px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
           {icon}
         </div>
 

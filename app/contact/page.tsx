@@ -98,7 +98,7 @@ export default function ContactSection() {
         </p>
 
         {/* Direct Contact Information */}
-        <div className="mb-10 p-6 bg-white/10 border border-white/20 rounded-2xl">
+        <div className="mb-10 p-6 bg-white/10 border border-white/20 rounded-2xl -mx-6 sm:mx-0">
           <div className="space-y-3">
             <div className="flex items-start gap-3">
               <span className="text-lg leading-none mt-1">📧</span>

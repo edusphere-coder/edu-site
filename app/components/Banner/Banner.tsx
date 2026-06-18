@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
-    <section className="relative overflow-hidden bg-[#05001a] text-white py-16 sm:py-24 lg:py-28 px-6 flex items-center justify-center">
+    <section className="relative overflow-hidden bg-[#05001a] text-white py-28 sm:py-24 lg:py-28 px-6 flex items-center justify-center">
 
       {/* BACKGROUND GRADIENT */}
       <div className="absolute inset-0 pointer-events-none">
@@ -90,7 +90,7 @@ const Banner = () => {
           className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6"
         >
           Build a Future-Proof IT Career with{" "}
-          <span className="text-[#00eaff]">Guaranteed Succes.</span>
+          <span className="text-[#00eaff]">Guaranteed Success.</span>
         </motion.h1>
 
         <motion.p
@@ -114,7 +114,7 @@ const Banner = () => {
   {/* Existing Button */}
   <Link
     href="/register"
-    className="px-8 sm:px-10 py-4 bg-gradient-to-r from-[#5c27f7] to-[#00b7ff] 
+    className="px-3 sm:px-10 py-4 bg-gradient-to-r from-[#5c27f7] to-[#00b7ff] 
     rounded-full text-lg font-semibold text-white shadow-[0_0_20px_rgba(60,143,255,0.5)] 
     hover:scale-105 transition-all inline-block"
   >
