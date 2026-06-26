@@ -81,6 +81,14 @@ const destinations: Destination[] = [
     highlights: ["PGWPP up to 3 years", "Easy Permanent Residency", "Vibrant Student Cities"],
     universities: "Toronto, UBC, McGill, Waterloo",
   },
+  {
+    id: 9,
+    title: "Dubai",
+    image: "/assets/university/dubai.png",
+    description: "Renowned for its high standard of living, welcoming immigration policies and competitive tuition rates for international students.",
+    highlights: ["PGWPP up to 3 years", "Easy Permanent Residency", "Vibrant Student Cities"],
+    universities: "Toronto, UBC, McGill, Waterloo",
+  },
 ];
 
 interface Service {

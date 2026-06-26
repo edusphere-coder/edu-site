@@ -104,8 +104,8 @@ export default function ContactSection() {
               <span className="text-lg leading-none mt-1">📧</span>
               <div className="min-w-0 flex-1">
                 <p className="text-sm opacity-75">Email</p>
-                <a href="mailto:eduspherecourses@gmail.com" className="text-white hover:opacity-75 transition break-all">
-                  eduspherecourses@gmail.com
+                <a href="mailto:info@eduspherecourses.com" className="text-white hover:opacity-75 transition break-all">
+                  info@eduspherecourses.com
                 </a>
               </div>
             </div>
