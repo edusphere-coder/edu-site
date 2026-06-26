@@ -15,7 +15,7 @@ const navigation = [
   { name: "Home", href: "/", section: "#home" },
   { name: "IT Training", href: "#courses-section" },
   { name: "About Us", href: "#About-Us-section" },
-  { name: "Oversea Education", href: "/education" },
+  { name: "Overseas Education", href: "/education" },
   { name: "Contact Us", href: "/contact" },
 ];
 
